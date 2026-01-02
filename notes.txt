@@ -1,0 +1,137 @@
+Créer une page A4 en HTML:
+1. Utilisation de la règle @page
+La règle @page permet de spécifier la taille et les marges de la page lors de l'impression.
+Code:
+<html>
+<head>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            width: 100%;
+            padding: 20mm;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, p {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Document Title</h1>
+        <p>This is a sample paragraph for the A4-sized document. It demonstrates how content will 
+          appear within the defined page layout.</p>
+        <p>Additional content can be added here to fill the page and showcase the layout.</p>
+    </div>
+</body>
+</html>
+
+Dans cet exemple:
+-la règle @page définit le format de page à A4 et définit une margin (marge) de 20 mm sur tous les côtés.
+-la classe .content applique un remplissage (padding) et garantit que le contenu s'adapte à la zone imprimable (box-sizing:borerox;), en tenant compte des marges (margin).
+-un fond clair et une bordure sont ajoutés pour représenter visuellement les limites de la page.
+
+----------------------------------------------
+
+2. Utilisation de dimensions spécifiques
+On peut définir les dimensions exactes d'une page A4 à l'aide des propriétés de width et de height.
+Code:
+<html>
+<head>
+    <style>
+        .a4-page {
+            width: 210mm;
+            height: 297mm;
+            margin: 20px auto;
+            padding: 20mm;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+        }
+        body {
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+        }
+        h1, p {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="a4-page">
+        <h1>Sample Document</h1>
+        <p>This is a sample paragraph demonstrating the appearance of content within 
+          an A4-sized page layout.</p>
+        <p>Additional text can be included to further illustrate the layout and styling.</p>
+    </div>
+</body>
+</html>
+
+Dans cet exemple:
+-la classe .a4-page définit la largeur et la hauteur à 210 mm et 297 mm respectivement, correspondant aux dimensions A4 (21 x 29.7 cm).
+-une ombre portée (box-shadow) et une bordure sont ajoutées pour créer un aspect de page distinct sur le fond.
+-le style du corps (body) est conçu pour centrer la div .a4-page verticalement (justify-content) et horizontalement (align-items) dans la fenêtre d'affichage.
+
+----------------------------------------------
+
+3. Utilisation d'un framework CSS
+Des frameworks comme Paper.css fournissent des classes prédéfinies pour les formats de papier standard, simplifiant ainsi le processus.
+Code:
+<html >
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
+    <style>
+        @page { size: A4 }
+        .sheet {
+            padding: 20mm;
+            background-color: #fafafa;
+        }
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Georgia', serif;
+        }
+        h1, p {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+<body class="A4">
+    <section class="sheet">
+        <h1>Paper.css Document</h1>
+        <p>This document utilizes Paper.css to format the page to A4 size, providing
+          a clean and printable layout.</p>
+        <p>Content can be styled and structured as needed within this framework.</p>
+    </section>
+</body>
+</html>
+
+Dans cet exemple:
+-la feuille de style liée à Paper.css fournit des classes telles que .A4 et .sheet pour les documents au format A4. 
+-la règle @page garantit que la page imprimée respecte les dimensions A4. 
+-la classe .sheet inclut un espacement interne pour positionner correctement le contenu sur la page.
+
+
+

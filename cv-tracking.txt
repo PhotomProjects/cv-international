@@ -1,0 +1,6 @@
+Initialisation du projet:
+- choix de la stack
+- organisation de la structure des sous domaines
+- brainstorming des features à ajouter
+- création du CV "source" dans un premier temps
+	passage de ce CV dans un scanner ATS pour vérifier le pourcentage
