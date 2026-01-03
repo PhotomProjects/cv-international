@@ -1,7 +1,10 @@
 # Liens entre JS, CSS et HTML
 
-Il n'y a pas de classe “définie” .dark dans le code HTML.
-Or, JavaScript peut l’ajouter dynamiquement à n’importe quel élément du DOM, et c’est précisément là que le pont entre le JS et le CSS se crée.
+Comment le lien se fait entre les 3 langages?
+Prenons le cas du dark mode:
+
+- il n'y a pas de classe “définie” .dark dans le code HTML
+- or, JavaScript peut l’ajouter dynamiquement à n’importe quel élément du DOM, et c’est précisément là que le pont entre le JS et le CSS se crée
 
 ## Étape par étape: le lien CSS ⇄ JS
 
@@ -55,6 +58,56 @@ C’est le mécanisme de liaison implicite entre CSS et JS:
 
 - le CSS écoute les états des classes dans le DOM
 - et le JS modifie ces classes selon la logique définie
+
+## Où placer le tag `<script>` HTML?
+
+**Mauvais**
+
+Jamais entre le head et body.
+
+```HTML
+</head>
+<script src="js/script.js" defer></script>
+<body>
+```
+
+**Correct**
+
+Option A — dans le head (avec defer)
+
+```HTML
+<head>
+  ...
+  <script src="js/script.js" defer></script>
+</head>
+```
+
+Sans defer ou async, le navigateur télécharge et exécute le script immédiatement, avant de continuer à lire le reste du HTML.
+Conséquence:
+
+- le rendu de la page est bloqué tant que le JS n’a pas fini d’être chargé et exécuté.
+- si le script manipule des éléments HTML qui n’existent pas encore (ex: document.getElementById("theme-toggle")), il échouera car le DOM n’est pas encore construit
+  -> mauvais pour la performance et le SEO
+
+Option B — juste avant /body (sans defer)
+
+```HTML
+<body>
+  ...
+  <script src="js/script.js"></script>
+</body>
+```
+
+Le navigateur charge tout le HTML d’abord, puis télécharge et exécute le script en dernier.
+
+Avantages:
+
+- le DOM est déjà prêt, le JS peut interagir directement avec les éléments
+- le rendu de la page n’est pas bloqué -> meilleures performances
+
+Inconvénient:
+
+- si le JS doit exécuter quelque chose avant le rendu (comme un thème par défaut), il sera appliqué un peu tard (effet “flash” possible)
 
 ---
 
