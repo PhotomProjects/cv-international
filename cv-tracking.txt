@@ -4,3 +4,12 @@ Initialisation du projet:
 - brainstorming des features à ajouter
 - création du CV "source" dans un premier temps
 	passage de ce CV dans un scanner ATS pour vérifier le pourcentage
+_____________________________________________________________________
+Mise en place du projet:
+- création du repo GitHub
+- création de la structure HTML
+_____________________________________________________________________
+Modification du projet:
+- ajout de commentaires expliquant le code
+- ajout du style via CSS
+- ajout d'une fonctionnalité dark/light mode via JS
