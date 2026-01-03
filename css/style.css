@@ -1,32 +1,44 @@
+/* Variables */
+:root {                          /* :root selector defines variables globally (accessible anywhere in the CSS) */
+  --bg-color: #ffffff;         /* declared with the -- prefix and used with the var() function */
+  --text-color: #1f2933;
+  --muted-text: #374151;
+  --border-color: #000000;
+  --link-color: #2563eb;
+  --btn-border: #000000;
+  --btn-bg: #ffffff;
+  --btn-hover: #e0e0e0;
+  /* define reusable color variables for consistent theming / centralize design tokens (colors, tones, etc.) for easier maintenance / allow quick theme changes (e.g., light/dark mode) by updating values here. */
+}
+
 /* Reset */
-*,
-*::before,
+*,                              /* targets all HTML elements */
+*::before,                      /* *::before & *::after adds pseudo-elements too */
 *::after {
-    box-sizing: border-box;
+    box-sizing: border-box;     /* normalize how element dimensions are calculated across the page and simplify layout handling and prevent browser inconsistencies
+                                - default behavior (content-box): width/height apply only to content, so padding and border adds to the total size
+                                ex: width: 100px + padding: 10px → total width = 120px.
+                                - with box-sizing: border-box: width/height include padding and border, keeping the total size consistent (100px in the ex above) */
 }
 
 body {
     margin: 0;
-    padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: #1f2933;
-    background-color: #ffffff;
+    padding: 0 1rem;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.3;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* Global layout */
 header,
 main {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
 }
 
 /* Header */
-header {
-    border-bottom: 1px solid #e5e7eb;
-}
-
 header h1 {
     font-size: 2.7rem;
     margin: 0;
@@ -42,7 +54,7 @@ header h2 {
 
 header p {
     font-size: 1.1rem;
-    color: #374151;
+    color: var(--muted-text);
     margin: 0;
     text-align: center;
 }
@@ -54,12 +66,41 @@ address {
 }
 
 address a {
-    color: #2563eb;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 address a:hover {
     text-decoration: underline;
+}
+
+/* Header actions */
+div.header-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    border: 1px solid var(--btn-border);
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;   /* used this proprety to get the "pointing hand" on all buttons (darkmode for ex) */
+}
+
+.btn:hover {
+    background-color: var(--btn-hover);
+}
+
+.btn-secondary {
+    width: 60px;
+    text-align: center;
 }
 
 /* Sections */
@@ -69,7 +110,7 @@ section {
 
 section h2 {
     font-size: 1.3rem;
-    border-bottom: 2px solid #000000;
+    border-bottom: 2px solid var(--border-color);
     text-transform: uppercase;
     letter-spacing: 0.15rem;
 }
@@ -108,4 +149,15 @@ strong {
     section h2 {
         font-size: 1.2rem;
     }
+}
+
+body.dark {
+    --bg-color: #0f172a;
+    --text-color: #e5e7eb;
+    --muted-text: #cbd5f5;
+    --border-color: #2a3a53;
+    --link-color: #60a5fa;
+    --btn-border: #e5e7eb;
+    --btn-bg: #020617;
+    --btn-hover: #1e293b;
 }

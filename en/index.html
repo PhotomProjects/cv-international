@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
     <title>CV (EN) - AUTHELIN Florian</title>
 </head>
 <body>
@@ -25,6 +26,10 @@
                 <a href="https://authelinflorian.dev" target="_blank">authelinflorian.dev</a>
             </p>
         </address>          <!-- contact information can be an email address, URL, physical address, phone number, social media handle, etc -->
+        <div class="header-actions">
+            <a href="../new/cv-source.pdf" class="btn" download="AUTHELIN Florian's Resume">Download PDF</a> <!-- the download attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink, optional value will be the new name of the file after it is downloaded, there are no restrictions on allowed values, and the browser will automatically detect the correct file extension and add it to the file -->
+            <button id="theme-toggle" class="btn btn-secondary" aria-label="Toggle dark mode">🌙</button>  <!-- btn for darkmode, made in JS -->
+        </div>
     </header>
 
     <main>
