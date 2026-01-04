@@ -168,18 +168,33 @@ strong {
 
     body h1 {
         font-size: 2rem;
+        text-align: center;
     }
 
     body h2 {
         font-size: 1.3rem;
+        text-align: center;
     }
 
     body h3 {
         font-size: 1.1rem;
+        text-align: center;
     }
 
     body p {
         font-size: 1rem;
+        text-align: center;
+    }
+
+    .btn {
+        min-width: auto;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    .language-switcher ul {         /* avoid the header to break on very small resolution */
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
