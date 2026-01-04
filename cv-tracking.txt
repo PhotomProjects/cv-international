@@ -10,6 +10,9 @@ Mise en place du projet:
 - création de la structure HTML
 _____________________________________________________________________
 Modification du projet:
-- ajout de commentaires expliquant le code
+- ajout de commentaires expliquant le code (+note)
 - ajout du style via CSS
 - ajout d'une fonctionnalité dark/light mode via JS
+- ajout des règles @page / @media print pour l'impression
+- ajout du CV en français + création de la page en version française (via branch i18n-fr, mergé et supprimé)
+- ajout du CV en japonais + création de la page en version japonaise (via branch i18n-jp, mergé et supprimé)
