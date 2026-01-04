@@ -9,6 +9,10 @@
   --btn-bg: #ffffff;
   --btn-hover: #e0e0e0;
   /* define reusable color variables for consistent theming / centralize design tokens (colors, tones, etc.) for easier maintenance / allow quick theme changes (e.g., light/dark mode) by updating values here. */
+  font-size: 16px;
+  /* 1rem (root em) = 16px, default value used by the navigator, ensures design is consistent across all browsers and makes calculations easier for responsive scaling via rem 
+  em = relative to the font size of its direct parent, each level multiplies the size of the parent, so it increases with each nesting.  
+  */
 }
 
 /* Reset */
@@ -84,8 +88,10 @@ div.header-actions {
 }
 
 .btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+    width: 60px;
+    text-align: center;
     border-radius: 50px;
     border: 1px solid var(--btn-border);
     background-color: var(--btn-bg);
@@ -96,11 +102,6 @@ div.header-actions {
 
 .btn:hover {
     background-color: var(--btn-hover);
-}
-
-.btn-secondary {
-    width: 60px;
-    text-align: center;
 }
 
 /* Sections */
@@ -142,12 +143,24 @@ strong {
 
 /* Responsive */
 @media (max-width: 425px) {
-    header h1 {
-        font-size: 1.7rem;
+    :root {
+        font-size: 14px;
     }
 
-    section h2 {
-        font-size: 1.2rem;
+    body h1 {
+        font-size: 2rem;
+    }
+
+    body h2 {
+        font-size: 1.3rem;
+    }
+
+    body h3 {
+        font-size: 1.1rem;
+    }
+
+    body p {
+        font-size: 1rem;
     }
 }
 
@@ -160,4 +173,84 @@ body.dark {
     --btn-border: #e5e7eb;
     --btn-bg: #020617;
     --btn-hover: #1e293b;
+}
+
+/* Print */
+/* @media print and @page complement each other, while @media print stylize the content (typography, colors, layout), @page configure the printed page (format, margins)
+page rule is used to modify different aspects of printed pages (targets and modifies the page's dimensions, orientation, and margins) */
+@page {
+    size: 21cm 29.7cm;
+    margin-top: 1cm;
+}
+
+@media print {
+    /* Force light mode */
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* Overrides the dark mode colors to get the light theme when printing */
+    body.dark {
+        --bg-color: #ffffff;
+        --text-color: #000000;
+        --muted-text: #000000;
+        --border-color: #000000;
+        --link-color: #000000;
+        --btn-bg: #ffffff;
+        --btn-hover: #ffffff;
+    }
+
+    /* Hide non-print elements */
+    .header-actions,
+    button,
+    a {
+        display: none;
+    }
+
+    /* Layout adjustments */
+    header,
+    main {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    header {
+        margin-bottom: -3rem;
+    }
+
+    section {
+        margin-top: 2rem;
+    }
+
+    /* Typography */
+    /* pt measure is used to ensure a consistent and legible physical size on paper, regardless of the browser or screen resolution 
+    when printing, the navigator does not understand pixels, it needs to convert them into actual measurements (points (pt), centimeters (cm), and millimeters (mm) are recognized as actual units by the browser's print engine)
+    1pt = 1/72 inch (≈ 0.35 mm) so 12pt ≈ 4.23 mm -> standard size of readable printed text
+    pixels (px) have no fixed equivalent on paper -> text at 16px can appear tiny or enormous depending on the print scaling
+    so pt / cm / mm are for printing and px / rem for the screen
+    */
+    body h1 {
+        font-size: 17pt;
+    }
+
+    body h2 {
+        font-size: 15pt;
+    }
+
+    body h3 {
+        font-size: 13pt;
+    }
+
+    p,
+    li {
+        font-size: 12pt;
+        line-height: 1.1;
+    }
+
+    /* Links */
+    header address p a {
+        display: none;
+    }
 }
