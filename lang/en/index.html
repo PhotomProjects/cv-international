@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="alternate" hreflang="en" href="../en/index.html"/>  <!-- hreflang allows Google to shows the correct version according to the language, it also helps Google to understand that there are multiple languages on the website / without, Google might: -index the incorrect language, -display the Japanese version to a French recruiter for ex, -penalize duplicate content-->
+    <link rel="alternate" hreflang="fr" href="../fr/index.html"/>
+    <link rel="alternate" hreflang="ja" href="../jp/index.html"/>
     <script src="../../js/script.js" defer></script>  <!-- the defer attribute allows the navigator to download the script alongside the HTML (non-blocking), once the DOM is entirely charged by the navigator, he exectues them in the order of the code wich means order is respected, even with multiple defer attribute -->
     <title>CV (EN) - AUTHELIN Florian</title>
 </head>
@@ -16,20 +19,26 @@
             <p>
                 <a href="mailto:photomprojects@gmail.com">photomprojects@gmail.com</a>
             </p>
-            <p>
-                <a href="https://www.linkedin.com/in/florianauthelin57/" target="_blank">linkedin.com/in/florianauthelin57</a>
-            </p>
-            <p>
-                <a href="https://github.com/PhotomProjects" target="_blank">github.com/PhotomProjects</a>
-            </p>
-            <p>
-                <a href="https://authelinflorian.dev" target="_blank">authelinflorian.dev</a>
-            </p>
-        </address>          <!-- contact information can be an email address, URL, physical address, phone number, social media handle, etc -->
-        <div class="header-actions">
-            <a href="../../resume/cv-en.pdf" class="btn" download="AUTHELIN Florian's Resume">🖨️</a> <!-- the download attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink, optional value will be the new name of the file after it is downloaded, there are no restrictions on allowed values, and the browser will automatically detect the correct file extension and add it to the file -->
-            <button id="theme-toggle" class="btn" aria-label="Toggle dark mode">🌙</button>  <!-- btn for darkmode, made in JS -->
-        </div>
+            </address>          <!-- contact information can be an email address, URL, physical address, phone number, social media handle, etc -->
+            <nav class="language-switcher" aria-label="Language selector">     
+                <ul>
+                    <li>
+                        <a href="../en/index.html" lang="en" class="btn active">EN</a>
+                    </li>
+                    <li>
+                        <a href="../fr/index.html" lang="fr" class="btn">FR</a>
+                    </li>
+                    <li>
+                        <a href="../jp/index.html" lang="ja" class="btn">JP</a>
+                    </li>
+                    <li>
+                         <button id="theme-toggle" class="btn" aria-label="Toggle dark mode">🌙</button>  <!-- btn for darkmode, made in JS -->
+                    </li>
+                    <li>
+                        <a href="../../resume/cv-en.pdf" download="AUTHELIN Florian's Resume" class="btn" aria-label="Download resume PDF">🖨️</a> <!-- the download attribute specifies that the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink, optional value will be the new name of the file after it is downloaded, there are no restrictions on allowed values, and the browser will automatically detect the correct file extension and add it to the file -->
+                    </li>
+                </ul>
+            </nav>
     </header>
 
     <main>

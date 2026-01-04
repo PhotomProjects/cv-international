@@ -79,29 +79,47 @@ address a:hover {
 }
 
 /* Header actions */
-div.header-actions {
-    margin-top: 2rem;
+nav.language-switcher {
+    margin-top: 1rem;
     display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
     justify-content: center;
+    margin-bottom: -3rem;
 }
 
+/* Language switcher */
+.language-switcher ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.7rem;
+}
+
+/* Buttons */
 .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.5em 1em;
-    font-size: 0.9em;
-    width: 60px;
+    min-width: 60px;
     text-align: center;
+    font-size: 0.85rem;
+    text-decoration: none;
     border-radius: 50px;
     border: 1px solid var(--btn-border);
     background-color: var(--btn-bg);
     color: var(--text-color);
-    text-decoration: none;
     cursor: pointer;   /* used this proprety to get the "pointing hand" on all buttons (darkmode for ex) */
 }
 
 .btn:hover {
     background-color: var(--btn-hover);
+}
+
+.btn.active {
+    pointer-events: none;
+    opacity: 0.7;
+    font-weight: 700;
 }
 
 /* Sections */
@@ -117,6 +135,7 @@ section h2 {
 }
 
 /* Text */
+
 p {
     margin: 0.7rem 0;
 }
@@ -202,9 +221,7 @@ page rule is used to modify different aspects of printed pages (targets and modi
     }
 
     /* Hide non-print elements */
-    .header-actions,
-    button,
-    a {
+    nav.language-switcher {
         display: none;
     }
 
@@ -217,11 +234,11 @@ page rule is used to modify different aspects of printed pages (targets and modi
     }
 
     header {
-        margin-bottom: -3rem;
+        margin-bottom: -0.5cm;
     }
 
     section {
-        margin-top: 2rem;
+        margin-top: 0.8cm;
     }
 
     /* Typography */
