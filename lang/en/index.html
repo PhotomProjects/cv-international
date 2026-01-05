@@ -3,17 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Online resume of Florian Authelin, full-stack JavaScript developer. Experience with React, Node.js, Express and PostgreSQL. Based in France, open to opportunities."/>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="alternate" hreflang="en" href="../en/index.html"/>  <!-- hreflang allows Google to shows the correct version according to the language, it also helps Google to understand that there are multiple languages on the website / without, Google might: -index the incorrect language, -display the Japanese version to a French recruiter for ex, -penalize duplicate content-->
     <link rel="alternate" hreflang="fr" href="../fr/index.html"/>
     <link rel="alternate" hreflang="ja" href="../jp/index.html"/>
+    <link rel="alternate" hreflang="x-default" href="../en/index.html"/>   <!-- fallback page language -->
+    <link rel="canonical" href="../en/index.html"/>   <!-- canonical says thats the official page for the EN language -->
     <script src="../../js/script.js" defer></script>  <!-- the defer attribute allows the navigator to download the script alongside the HTML (non-blocking), once the DOM is entirely charged by the navigator, he exectues them in the order of the code wich means order is respected, even with multiple defer attribute -->
     <title>CV (EN) - AUTHELIN Florian</title>
+    <!-- allows Google to know im a real person by giving the crawler infos on me
+     <script type="application/ld+json"> -> data tag, tells to the navigator that the content of this <script> is JSON-LD (Linked Data), the navigator then downloads the script and use it for the crawlers
+     "@context": "https://schema.org" -> words used (Person, name, jobTitle, etc.) must be interpreted according to the rules of Schema.org, without this line Google sees a normal json and so skips it because it does not know how to interpret the keys with their values
+     -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "AUTHELIN Florian",
+    "jobTitle": "Full-Stack Developer",
+    "email": "mailto:photomprojects@gmail.com",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Metz",
+        "addressCountry": "FR"
+    },
+    "url": "https://authelinflorian.dev/",
+    "sameAs": [
+        "https://github.com/PhotomProjects",
+        "https://www.linkedin.com/in/florianauthelin57/"
+    ],
+    "knowsAbout": [
+        "JavaScript",
+        "TypeScript",
+        "SQL",
+        "React",
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "Git",
+        "Docker",
+        "Vercel",
+        "REST APIs",
+        "Web Accessibility",
+        "SEO"
+        ]
+    }
+    </script>
 </head>
 <body>
     <header>
-        <h1>AUTHELIN Florian</h1>
-        <h2>Full Stack Developer</h2>
+        <h1>AUTHELIN Florian - Full Stack Developer</h1>
         <address>               <!-- forgot to add, defines the contact information for the author/owner of a document or an article, semantic is respected -->
             <p>Metz, France</p>
             <p>
@@ -60,7 +103,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/florianauthelin57/" target="_blank" rel="noopener noreferrer" class="btn" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/florianauthelin57/" target="_blank" rel="noopener noreferrer" class="btn" aria-label="LinkedIn">  <!-- target="_blank" can allow the new opened page to access at window.opener and so it can modify the original page/redirects to a bad website/phishing - it's called tabnabbing 
+                                                                                                                                                                rel="noopener" cuts the access to window.opener so that the new page cannot control the original page / rel="noreferrer" restrains the sending of the HTTP header named Referer so that the visited website does not know where the user is coming from -->
                             <svg viewBox="0 0 24 24" class="social-icon">
                                 <g>
 	                            <path d="M17.291,19.073h-3.007v-4.709c0-1.123-0.02-2.568-1.564-2.568c-1.566,0-1.806,1.223-1.806,2.487v4.79H7.908   V9.389h2.887v1.323h0.04c0.589-1.006,1.683-1.607,2.848-1.564c3.048,0,3.609,2.005,3.609,4.612L17.291,19.073z M4.515,8.065   c-0.964,0-1.745-0.781-1.745-1.745c0-0.964,0.781-1.745,1.745-1.745c0.964,0,1.745,0.781,1.745,1.745   C6.26,7.284,5.479,8.065,4.515,8.065L4.515,8.065 M6.018,19.073h-3.01V9.389h3.01V19.073z M18.79,1.783H1.497   C0.68,1.774,0.01,2.429,0,3.246V20.61c0.01,0.818,0.68,1.473,1.497,1.464H18.79c0.819,0.01,1.492-0.645,1.503-1.464V3.245   c-0.012-0.819-0.685-1.474-1.503-1.463"/>
