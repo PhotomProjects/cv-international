@@ -202,6 +202,20 @@ strong {
     font-weight: 700;
 }
 
+/* Rirekisho */
+.rirekisho {
+    text-align: center;
+}
+
+.rirekisho a {
+    text-decoration: none;
+    color: var(--link-color)
+}
+
+.rirekisho a:hover {
+    text-decoration: underline;
+}
+
 /* Responsive */
 @media (max-width: 425px) {
     :root {
@@ -284,7 +298,8 @@ page rule is used to modify different aspects of printed pages (targets and modi
 
     /* Hide non-print elements */
     div.header-actions,
-    div.social-links {
+    div.social-links,
+    .rirekisho {
         display: none;
     }
 
