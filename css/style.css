@@ -259,7 +259,7 @@ strong {
     }
 }
 
-body.dark {
+html.dark {
     --bg-color: #0f172a;
     --text-color: #e5e7eb;
     --muted-text: #cbd5f5;
@@ -286,7 +286,7 @@ page rule is used to modify different aspects of printed pages (targets and modi
     }
 
     /* Overrides the dark mode colors to get the light theme when printing */
-    body.dark {
+    html.dark {
         --bg-color: #ffffff;
         --text-color: #000000;
         --muted-text: #000000;
