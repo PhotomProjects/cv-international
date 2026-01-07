@@ -209,7 +209,8 @@ strong {
 
 .rirekisho a {
     text-decoration: none;
-    color: var(--link-color)
+    color: var(--link-color);
+    display: block;
 }
 
 .rirekisho a:hover {
