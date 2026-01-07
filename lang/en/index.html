@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online resume of Florian Authelin, full-stack JavaScript developer. Experience with React, Node.js, Express and PostgreSQL. Based in France, open to opportunities."/>
+    <script>
+        (function () {
+            try {
+                // Load saved theme or system preference
+                const savedTheme = localStorage.getItem("theme");       // check for saved theme in localStorage(-> preserves user preference when page reloads), 
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;     // detect system preference for dark mode, window.matchMedia("(prefers-color-scheme: dark)") returns true if the user prefers dark mode
+
+                if (savedTheme === "dark" || (!savedTheme && prefersDark)) {    // apply the initial theme based on saved preference or system preference
+                // if user previously chose dark OR system prefers dark:
+                document.documentElement.classList.add("dark");     // add 'dark' class to html
+                }
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="alternate" hreflang="en" href="../en/index.html"/>  <!-- hreflang allows Google to shows the correct version according to the language, it also helps Google to understand that there are multiple languages on the website / without, Google might: -index the incorrect language, -display the Japanese version to a French recruiter for ex, -penalize duplicate content-->
     <link rel="alternate" hreflang="fr" href="../fr/index.html"/>
@@ -28,7 +42,7 @@
         "addressLocality": "Metz",
         "addressCountry": "FR"
     },
-    "url": "https://authelinflorian.dev/",
+    "url": "https://authelinflorian.dev/en/",
     "sameAs": [
         "https://github.com/PhotomProjects",
         "https://www.linkedin.com/in/florianauthelin57/"
@@ -52,20 +66,6 @@
         "SEO"
         ]
     }
-    </script>
-    <script>
-        (function () {
-            try {
-                // Load saved theme or system preference
-                const savedTheme = localStorage.getItem("theme");       // check for saved theme in localStorage(-> preserves user preference when page reloads), 
-                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;     // detect system preference for dark mode, window.matchMedia("(prefers-color-scheme: dark)") returns true if the user prefers dark mode
-
-                if (savedTheme === "dark" || (!savedTheme && prefersDark)) {    // apply the initial theme based on saved preference or system preference
-                // if user previously chose dark OR system prefers dark:
-                document.documentElement.classList.add("dark");     // add 'dark' class to html
-                }
-            } catch (e) {}
-        })();
     </script>
 </head>
 <body>
@@ -153,7 +153,7 @@
                 <li>Front end languages: <strong>React</strong>, <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>Tailwind CSS</strong></li>
                 <li>Back end languages: <strong>Node.js</strong>, <strong>Express</strong></li>
                 <li>Database: <strong>PostgreSQL</strong></li>
-                <li>Tools: <strong>Git, <strong>Docker (basic)</strong>, <strong>Vercel</strong></li>
+                <li>Tools: <strong>Git</strong>, <strong>Docker (basic)</strong>, <strong>Vercel</strong></li>
                 <li><strong>Website architecture</strong></li>
                 <li><strong>Web design</strong></li>
                 <li><strong>Project management</strong></li>

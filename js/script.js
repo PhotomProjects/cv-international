@@ -1,5 +1,3 @@
-console.log("Script loaded"); // log to console to confirm the script is loaded
-
 // ------------
 // | DARKMODE |
 // ------------

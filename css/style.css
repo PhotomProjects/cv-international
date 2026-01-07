@@ -41,6 +41,11 @@ main {
   animation: fadeIn 0.3s ease-out;
 }
 
+/* HTML */
+html {
+    background-color: var(--bg-color);
+}
+
 /* Body */
 body {
     margin: 0;
@@ -347,6 +352,7 @@ page rule is used to modify different aspects of printed pages (targets and modi
 
     /* Links */
     header address p a {
-        display: none;
+        text-decoration: none;
+        color: #000000 !important;
     }
 }

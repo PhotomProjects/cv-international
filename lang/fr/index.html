@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CV en ligne de Florian Authelin, développeur full stack JavaScript. Expérience avec React, Node.js, Express et PostgreSQL. Basé à Metz, France."/>
+    <script>
+        (function () {
+            try {
+                const savedTheme = localStorage.getItem("theme");
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+                if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add("dark");
+                }
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="alternate" hreflang="fr" href="../fr/index.html"/>
     <link rel="alternate" hreflang="en" href="../en/index.html"/>
@@ -24,7 +36,7 @@
         "addressLocality": "Metz",
         "addressCountry": "FR"
     },
-    "url": "https://authelinflorian.dev/",
+    "url": "https://authelinflorian.dev/fr/",
     "sameAs": [
         "https://github.com/PhotomProjects",
         "https://www.linkedin.com/in/florianauthelin57/"
@@ -48,18 +60,6 @@
         "SEO"
         ]
     }
-    </script>
-    <script>
-        (function () {
-            try {
-                const savedTheme = localStorage.getItem("theme");
-                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-                if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-                document.documentElement.classList.add("dark");
-                }
-            } catch (e) {}
-        })();
     </script>
 </head>
 <body>
@@ -145,7 +145,7 @@
                 <li>Langages Front end: <strong>React</strong>, <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>Tailwind CSS</strong></li>
                 <li>Langages Back end: <strong>Node.js</strong>, <strong>Express</strong></li>
                 <li>Base de données: <strong>PostgreSQL</strong></li>
-                <li>Outils: <strong>Git, <strong>Docker (basic)</strong>, <strong>Vercel</strong></li>
+                <li>Outils: <strong>Git</strong>, <strong>Docker (basic)</strong>, <strong>Vercel</strong></li>
                 <li><strong>Architecture du Web</strong></li>
                 <li><strong>Design Web</strong></li>
                 <li><strong>Gestion de projet</strong></li>
