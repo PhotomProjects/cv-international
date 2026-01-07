@@ -61,3 +61,9 @@ A fast, print-friendly, SEO-ready online CV built with vanilla HTML/CSS/JS, feat
 ## <ins>Roadmap</ins>
 
 - add absolute URLs (canonical / hreflang - x-default / JSON-LD) when my portfolio will be online (as for the sub-domains).
+
+---
+
+## <ins>License</ins>
+
+See `LICENSE`.
