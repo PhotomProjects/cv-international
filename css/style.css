@@ -1,6 +1,6 @@
 /* Variables */
-:root {                          /* :root selector defines variables globally (accessible anywhere in the CSS) */
-  --bg-color: #ffffff;         /* declared with the -- prefix and used with the var() function */
+:root {
+  --bg-color: #ffffff;
   --text-color: #1f2933;
   --muted-text: #374151;
   --border-color: #000000;
@@ -8,21 +8,14 @@
   --btn-border: #000000;
   --btn-bg: #ffffff;
   --btn-hover: #e0e0e0;
-  /* define reusable color variables for consistent theming / centralize design tokens (colors, tones, etc.) for easier maintenance / allow quick theme changes (e.g., light/dark mode) by updating values here. */
   font-size: 16px;
-  /* 1rem (root em) = 16px, default value used by the navigator, ensures design is consistent across all browsers and makes calculations easier for responsive scaling via rem 
-  em = relative to the font size of its direct parent, each level multiplies the size of the parent, so it increases with each nesting.  
-  */
 }
 
 /* Reset */
-*,                              /* targets all HTML elements */
-*::before,                      /* *::before & *::after adds pseudo-elements too */
+*,
+*::before,
 *::after {
-    box-sizing: border-box;     /* normalize how element dimensions are calculated across the page and simplify layout handling and prevent browser inconsistencies
-                                - default behavior (content-box): width/height apply only to content, so padding and border adds to the total size
-                                ex: width: 100px + padding: 10px → total width = 120px.
-                                - with box-sizing: border-box: width/height include padding and border, keeping the total size consistent (100px in the ex above) */
+    box-sizing: border-box;
 }
 
 /* Animation */
@@ -80,7 +73,7 @@ header p {
 
 address {
     font-style: normal;
-    display: grid;    /* display: block prevents to use the gap property */
+    display: grid;
     gap: 0.5rem;
 }
 
@@ -129,7 +122,7 @@ div.header-actions {
     transition: background-color 0.3s ease, transform 0.3s ease;
     background-color: var(--btn-bg);
     color: var(--text-color);
-    cursor: pointer;   /* used this proprety to get the "pointing hand" on all buttons (darkmode for ex) */
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -254,7 +247,7 @@ strong {
         font-size: 0.8rem;
     }
 
-    .language-switcher ul {         /* avoid the header to break on very small resolution */
+    .language-switcher ul {
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -277,8 +270,6 @@ html.dark {
 }
 
 /* Print */
-/* @media print and @page complement each other, while @media print stylize the content (typography, colors, layout), @page configure the printed page (format, margins)
-page rule is used to modify different aspects of printed pages (targets and modifies the page's dimensions, orientation, and margins) */
 @page {
     size: 21cm 29.7cm;
     margin-top: 1cm;
@@ -326,12 +317,6 @@ page rule is used to modify different aspects of printed pages (targets and modi
     }
 
     /* Typography */
-    /* pt measure is used to ensure a consistent and legible physical size on paper, regardless of the browser or screen resolution 
-    when printing, the navigator does not understand pixels, it needs to convert them into actual measurements (points (pt), centimeters (cm), and millimeters (mm) are recognized as actual units by the browser's print engine)
-    1pt = 1/72 inch (≈ 0.35 mm) so 12pt ≈ 4.23 mm -> standard size of readable printed text
-    pixels (px) have no fixed equivalent on paper -> text at 16px can appear tiny or enormous depending on the print scaling
-    so pt / cm / mm are for printing and px / rem for the screen
-    */
     body h1 {
         font-size: 17pt;
     }
