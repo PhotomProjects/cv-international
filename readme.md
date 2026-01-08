@@ -2,9 +2,13 @@
 
 # Multilingual Online CV (EN/FR/JP)
 
-</div>
-
 A fast, print-friendly, SEO-ready online CV built with vanilla HTML/CSS/JS, featuring dark mode and Japanese application documents (履歴書 / 職務経歴書) as PDFs.
+
+The goal was to make it the more simplistic possible for a quick reading.
+
+It was thinked for durability and maintenance, notably for the projects section so that it'll be easy to add multiple projects to show with demos in it.
+
+</div>
 
 ---
 
@@ -24,8 +28,8 @@ A fast, print-friendly, SEO-ready online CV built with vanilla HTML/CSS/JS, feat
 - SEO basics: **per languages,** titles, descriptions, canonical/hreflang, JSON-LD `Person`
 - Social links (GitHub/LinkedIn) as inline SVG
 - Japanese documents:
-  - 履歴書 (Rirekisho) PDF
-  - 職務経歴書 (Shokumu-keirekisho) PDF
+  履歴書 (Rirekisho) PDF
+  職務経歴書 (Shokumu-keirekisho) PDF
 
 ---
 
@@ -55,6 +59,33 @@ A fast, print-friendly, SEO-ready online CV built with vanilla HTML/CSS/JS, feat
    ├─ rirekisho-*.pdf
    └─ shokumu-keirekisho-*.pdf
 ```
+
+---
+
+## <ins>Project timeline</ins>
+
+### 1st day
+
+- stack selection
+- organization of the subdomain structure
+- brainstorming of features to add
+- creation of my resume in docx to scan it afterwards (ATS)
+
+### 2nd day to 5th day
+
+- initialization of the project (repo created)
+- code
+  - HTML structure first, writing content after, made two different branches for FR/JP versions (i18n-fr (FR) and i18n-jp (JP), both merged and deleted now)
+  - CSS (media/page rules, responsive, dark mode)
+  - JS (dark mode)
+- test/debug
+- fix (fixed a major issue with darkmode, issue #1)
+- creation of Rirekisho and Shokumukeirekisho
+
+### 6th day
+
+- cleaning code and folder
+- writing readme - licence - what I learned
 
 ---
 
