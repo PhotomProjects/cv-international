@@ -387,7 +387,7 @@ The change between light and dark is gradual, not abrupt.
 - sets the page background on \<html>, not only on \<body>
 - it helps avoid white background flashes and ensures the entire viewport has the right background immediately
 
-We do this because the browser creates the document, paints the default background, and only then displays the \<body> element.
+I did this because the browser creates the document, paints the default background, and only then displays the \<body> element.
 This default background is white.
 So before:
 
@@ -427,7 +427,7 @@ Communicates “this is clickable” and improves UX consistency.
 
 `address { display: grid; }`
 
-You use display: grid so you can use gap for spacing.
+I used display: grid so I can use gap for spacing.
 
 gap doesn’t work on display: block, so using Grid (or Flex) makes spacing clean and consistent.
 
@@ -439,7 +439,7 @@ This avoids having to manually set margins between children.
 
 `.language-switcher ul { ... }`
 
-Typically you’re using flex and flex-wrap so the language buttons can wrap onto multiple lines.
+I used flex and flex-wrap so the language buttons can wrap onto multiple lines.
 
 justify-content: center keeps them centered when they wrap.
 
