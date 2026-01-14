@@ -8,6 +8,10 @@ The goal was to make it the more simplistic possible for a quick reading.
 
 It was thinked for durability and maintenance, notably for the projects section so that it'll be easy to add multiple projects to show with demos in it.
 
+For more information about the project, see:
+
+<a href="project.md" style="color:cyan;">About the project</a>
+
 </div>
 
 ---
@@ -45,19 +49,31 @@ It was thinked for durability and maintenance, notably for the projects section 
 
 ```text
 .
-├─ en/           # English page
-├─ fr/           # French page
-├─ jp/           # Japanese page
+├─ ats/
+│  └─ jobscan-match_report.pdf
+│  └─ jobscan-offer_comparison.png
 ├─ css/
 │  └─ style.css
+├─ img/
+│  └─ github.svg
+│  └─ linkedin.svg
 ├─ js/
 │  └─ script.js
-└─ resume/
-   ├─ cv-en.pdf
-   ├─ cv-fr.pdf
-   ├─ cv-jp.pdf
-   ├─ rirekisho-*.pdf
-   └─ shokumu-keirekisho-*.pdf
+├─ lang/
+│  └─ en/           # English page
+│     └─ index.html
+│  └─ fr/           # French page
+│     └─ index.html
+│  └─ jp/           # Japanese page
+│     └─ index.html
+├─ resume/
+│  ├─ cv-en.pdf
+│  ├─ cv-fr.pdf
+│  ├─ cv-jp.pdf
+│  ├─ rirekisho-*.pdf
+│  └─ shokumu-keirekisho-*.pdf
+├─ LICENSE
+└─ readme.md
 ```
 
 ---
