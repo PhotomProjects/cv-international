@@ -2,20 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#e5e7eb">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online resume of Florian Authelin, full-stack JavaScript developer. Experience with React, Node.js, Express and PostgreSQL. Based in France, open to opportunities."/>
-    <script>
-        (function () {
-            try {
-                const savedTheme = localStorage.getItem("theme");
-                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-                if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-                document.documentElement.classList.add("dark");
-                }
-            } catch (e) {}
-        })();
-    </script>
+    <link rel="stylesheet" href="/css/antiflash.css">
+    <script src="/js/theme-init.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="alternate" hreflang="en" href="/index.html"/>
     <link rel="alternate" hreflang="fr" href="/lang/fr/index.html"/>
