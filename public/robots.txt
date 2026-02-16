@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cv.authelinflorian.dev/sitemap.xml
