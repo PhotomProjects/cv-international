@@ -18,9 +18,9 @@ For more information about the project, see:
 
 ## <ins>Demo</ins>
 
-- EN: (coming soon)
-- FR: (coming soon)
-- JP: (coming soon)
+- EN: https://cv.authelinflorian.dev/
+- FR: https://cv.authelinflorian.dev/lang/fr/
+- JP: https://cv.authelinflorian.dev/lang/jp/
 
 ---
 
@@ -102,12 +102,6 @@ For more information about the project, see:
 
 - cleaning code and folder
 - writing readme - licence - what I learned
-
----
-
-## <ins>Roadmap</ins>
-
-- add absolute URLs (canonical / hreflang - x-default / JSON-LD) when my portfolio will be online (as for the sub-domains).
 
 ---
 
