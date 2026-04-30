@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "name": "Français",
+            "level": "Langue maternelle"
+        },
+        {
+            "name": "Anglais",
+            "level": "Professionnel (B2)"
+        },
+        {
+            "name": "Japonais",
+            "level": "Débutant (A1)"
+        }
+    ]
+}

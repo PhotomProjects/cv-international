@@ -1,0 +1,78 @@
+{
+    "skills": {
+        "skillsName": {
+            "progLanguage": "Langages de programmation",
+            "frontendLanguage": "Front end",
+            "backendLanguage": "Back end",
+            "database": "Base de données",
+            "tools": "Outils / environnement",
+            "design": "Création numérique / web",
+            "conception": "Conception",
+            "creativeTools": "Outils créatifs"
+        },
+        "groups": [
+            {
+                "id": "design",
+                "label": "Création numérique / web",
+                "items": [
+                    "intégration HTML5/CSS3",
+                    "responsive design",
+                    "hiérarchisation visuelle",
+                    "bases en design web",
+                    "maquettage",
+                    "UX / UI"
+                ]
+            },
+            {
+                "id": "frontend",
+                "label": "Front end",
+                "items": [
+                    "JavaScript (ES6+)",
+                    "TypeScript",
+                    "React",
+                    "Vue",
+                    "Astro",
+                    "Tailwind CSS"
+                ]
+            },
+            {
+                "id": "backend",
+                "label": "Back end",
+                "items": [
+                    "Node.js",
+                    "PHP",
+                    "base de données",
+                    "SQL"
+                ]
+            },
+            {
+                "id": "tools",
+                "label": "Outils / environnement",
+                "items": [
+                    "Git",
+                    "Docker",
+                    "Cloudflare Pages"
+                ]
+            },
+            {
+                "id": "conception",
+                "label": "Conception",
+                "items": [
+                    "architecture de l'information",
+                    "gestion de projet",
+                    "résolution de problèmes"
+                ]
+            },
+            {
+                "id": "creative-tools",
+                "label": "Outils créatifs",
+                "items": [
+                    "Figma",
+                    "Canva",
+                    "Procreate",
+                    "DaVinci Resolve"
+                ]
+            }
+        ]
+    }
+}

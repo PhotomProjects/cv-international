@@ -1,0 +1,17 @@
+{
+    "items": [
+        {
+            "title": "Développeur Web/Web Mobile",
+            "certification": "RNCP37674",
+            "school": "Metz Numeric School",
+            "period": "2025-2026",
+            "location": "57000 Metz"
+        },
+        {
+            "title": "Remise à niveau",
+            "school": "Metz Numeric School",
+            "period": "2025",
+            "location": "57000 Metz"
+        }
+    ]
+}

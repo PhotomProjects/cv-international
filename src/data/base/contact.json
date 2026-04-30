@@ -1,4 +1,8 @@
 {
+    "location": "Metz, France",
     "email": "photomprojects@gmail.com",
-    "location": "Metz, France"
+    "links": {
+        "github": "https://github.com/PhotomProjects",
+        "linkedin": "https://www.linkedin.com/in/florianauthelin57/"
+    }
 }

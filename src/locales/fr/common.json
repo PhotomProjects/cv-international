@@ -1,6 +1,16 @@
 {
     "sections": {
-        "summary": "Résumé",
-        "contact": "Contact"
+        "summary": "Résumé professionnel",
+        "contact": "Contact",
+        "education": "Formation",
+        "skills": "Compétences",
+        "projects": "Projets et expérience pratique",
+        "languages": "Langues"
+    },
+    "ui": {
+        "print": "Imprimer",
+        "downloadPdf": "Télécharger le PDF",
+        "designer": "Designer",
+        "fullstack": "Full Stack"
     }
 }

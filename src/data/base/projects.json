@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "id": "portfolio-win98",
+            "title": "Portfolio style Windows 98",
+            "stack": [
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "summary": "Conception d'une interface inspirée d'un environnement desktop rétro, avec recherche d'identité visuelle forte.",
+            "highlights": [
+                "Travail sur la hiérarchie visuelle, l'organisation des fenêtres et l'expérience de navigation",
+                "Développement d'un système de fenêtres réutilisable avec gestion du focus, de l'empilement et des interactions",
+                "Mise en place de l'i18n (FR/EN/JP) et d'un comportement responsive (desktop/tablette/mobile)",
+                "Déploiement sur Cloudflare Pages avec intégration continue via Git"
+            ],
+            "links": {
+                "live": "https://authelinflorian.dev/",
+                "github": "https://github.com/PhotomProjects"
+            }
+        }
+    ]
+}
