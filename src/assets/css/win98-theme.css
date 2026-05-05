@@ -14,10 +14,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #008080;
-}
-
 body header h1 {
     font-weight: 700;
 }
