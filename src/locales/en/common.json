@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "summary": "Professional Summary",
+        "contact": "Contact",
+        "education": "Education",
+        "skills": "Skills",
+        "projects": "Projects & Practical Experience",
+        "languages": "Languages"
+    },
+    "ui": {
+        "print": "Print",
+        "downloadPdf": "Download PDF",
+        "designer": "Designer",
+        "fullstack": "Full Stack"
+    }
+}

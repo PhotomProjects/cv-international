@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "summary": "職務要約",
+        "contact": "連絡先",
+        "education": "学歴",
+        "skills": "スキル",
+        "projects": "プロジェクト・実務経験",
+        "languages": "言語"
+    },
+    "ui": {
+        "print": "印刷",
+        "downloadPdf": "PDFをダウンロード",
+        "designer": "デザイナー",
+        "fullstack": "フルスタック"
+    }
+}
