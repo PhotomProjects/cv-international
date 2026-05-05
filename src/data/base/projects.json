@@ -2,18 +2,42 @@
     "items": [
         {
             "id": "portfolio-win98",
-            "title": "Portfolio style Windows 98",
+            "title": {
+                "fr": "Portfolio style Windows 98",
+                "en": "Windows 98-style Portfolio",
+                "ja": "Windows 98風ポートフォリオ"
+            },
             "stack": [
                 "HTML",
                 "CSS",
                 "JavaScript"
             ],
-            "summary": "Conception d'une interface inspirée d'un environnement desktop rétro, avec recherche d'identité visuelle forte.",
+            "summary": {
+                "fr": "Conception d'une interface inspirée d'un environnement desktop rétro, avec recherche d'identité visuelle forte.",
+                "en": "Design of an interface inspired by a retro desktop environment, with a strong focus on visual identity.",
+                "ja": "レトロなデスクトップ環境に着想を得たインターフェースを設計し、強いビジュアルアイデンティティを追求したプロジェクトです。"
+            },
             "highlights": [
-                "Travail sur la hiérarchie visuelle, l'organisation des fenêtres et l'expérience de navigation",
-                "Développement d'un système de fenêtres réutilisable avec gestion du focus, de l'empilement et des interactions",
-                "Mise en place de l'i18n (FR/EN/JP) et d'un comportement responsive (desktop/tablette/mobile)",
-                "Déploiement sur Cloudflare Pages avec intégration continue via Git"
+                {
+                    "fr": "Travail sur la hiérarchie visuelle, l'organisation des fenêtres et l'expérience de navigation",
+                    "en": "Work on visual hierarchy, window organization, and navigation experience",
+                    "ja": "視覚的階層、ウィンドウ構成、ナビゲーション体験を設計"
+                },
+                {
+                    "fr": "Développement d'un système de fenêtres réutilisable avec gestion du focus, de l'empilement et des interactions",
+                    "en": "Development of a reusable window system with focus, stacking, and interaction management",
+                    "ja": "フォーカス、重なり順、操作性を管理する再利用可能なウィンドウシステムを開発"
+                },
+                {
+                    "fr": "Mise en place de l'i18n (FR/EN/JP) et d'un comportement responsive (desktop/tablette/mobile)",
+                    "en": "Implementation of i18n (FR/EN/JP) and responsive behavior across desktop, tablet, and mobile",
+                    "ja": "多言語対応（FR/EN/JP）とレスポンシブ対応（PC／タブレット／モバイル）を実装"
+                },
+                {
+                    "fr": "Déploiement sur Cloudflare Pages avec intégration continue via Git",
+                    "en": "Deployment on Cloudflare Pages with continuous integration through Git",
+                    "ja": "Git連携による継続的デプロイを用いてCloudflare Pagesに公開"
+                }
             ],
             "links": {
                 "live": "https://authelinflorian.dev/",

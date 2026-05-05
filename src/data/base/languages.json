@@ -1,16 +1,40 @@
 {
     "items": [
         {
-            "name": "Français",
-            "level": "Langue maternelle"
+            "name": {
+                "fr": "Français",
+                "en": "French",
+                "ja": "フランス語"
+            },
+            "level": {
+                "fr": "Langue maternelle",
+                "en": "Native",
+                "ja": "母語"
+            }
         },
         {
-            "name": "Anglais",
-            "level": "Professionnel (C1)"
+            "name": {
+                "fr": "Anglais",
+                "en": "English",
+                "ja": "英語"
+            },
+            "level": {
+                "fr": "Professionnel (B2)",
+                "en": "Professional (B2)",
+                "ja": "業務レベル（B2）"
+            }
         },
         {
-            "name": "Japonais",
-            "level": "Débutant (A1)"
+            "name": {
+                "fr": "Japonais",
+                "en": "Japanese",
+                "ja": "日本語"
+            },
+            "level": {
+                "fr": "Débutant (A1)",
+                "en": "Beginner (A1)",
+                "ja": "初級（A1）"
+            }
         }
     ]
 }

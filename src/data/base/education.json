@@ -1,14 +1,22 @@
 {
     "items": [
         {
-            "title": "Développeur Web/Web Mobile",
+            "title": {
+                "fr": "Développeur Web/Web Mobile",
+                "en": "Web / Mobile Web Developer",
+                "ja": "Web／モバイルWeb開発者"
+            },
             "certification": "RNCP37674",
             "school": "Metz Numeric School",
             "period": "2025-2026",
             "location": "57000 Metz"
         },
         {
-            "title": "Remise à niveau",
+            "title": {
+                "fr": "Remise à niveau",
+                "en": "Refresher Course",
+                "ja": "基礎研修"
+            },
             "school": "Metz Numeric School",
             "period": "2025",
             "location": "57000 Metz"

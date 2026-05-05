@@ -1,31 +1,49 @@
 {
     "skills": {
-        "skillsName": {
-            "progLanguage": "Langages de programmation",
-            "frontendLanguage": "Front end",
-            "backendLanguage": "Back end",
-            "database": "Base de données",
-            "tools": "Outils / environnement",
-            "design": "Création numérique / web",
-            "conception": "Conception",
-            "creativeTools": "Outils créatifs"
-        },
         "groups": [
             {
                 "id": "design",
-                "label": "Création numérique / web",
+                "label": {
+                    "fr": "Création numérique / web",
+                    "en": "Digital / Web Creation",
+                    "ja": "デジタル／Web制作"
+                },
                 "items": [
-                    "intégration HTML5/CSS3",
-                    "responsive design",
-                    "hiérarchisation visuelle",
-                    "bases en design web",
-                    "maquettage",
+                    {
+                        "fr": "intégration HTML5/CSS3",
+                        "en": "HTML5/CSS3 integration",
+                        "ja": "HTML5/CSS3実装"
+                    },
+                    {
+                        "fr": "responsive design",
+                        "en": "responsive design",
+                        "ja": "レスポンシブデザイン"
+                    },
+                    {
+                        "fr": "hiérarchisation visuelle",
+                        "en": "visual hierarchy",
+                        "ja": "視覚的階層設計"
+                    },
+                    {
+                        "fr": "bases en design web",
+                        "en": "foundations in web design",
+                        "ja": "Webデザインの基礎"
+                    },
+                    {
+                        "fr": "maquettage",
+                        "en": "wireframing / mockups",
+                        "ja": "ワイヤーフレーム／モックアップ"
+                    },
                     "UX / UI"
                 ]
             },
             {
                 "id": "frontend",
-                "label": "Front end",
+                "label": {
+                    "fr": "Front end",
+                    "en": "Front end",
+                    "ja": "フロントエンド"
+                },
                 "items": [
                     "JavaScript (ES6+)",
                     "TypeScript",
@@ -37,17 +55,29 @@
             },
             {
                 "id": "backend",
-                "label": "Back end",
+                "label": {
+                    "fr": "Back end",
+                    "en": "Back end",
+                    "ja": "バックエンド"
+                },
                 "items": [
                     "Node.js",
                     "PHP",
-                    "base de données",
+                    {
+                        "fr": "base de données",
+                        "en": "databases",
+                        "ja": "データベース"
+                    },
                     "SQL"
                 ]
             },
             {
                 "id": "tools",
-                "label": "Outils / environnement",
+                "label": {
+                    "fr": "Outils / environnement",
+                    "en": "Tools / Environment",
+                    "ja": "ツール／環境"
+                },
                 "items": [
                     "Git",
                     "Docker",
@@ -56,16 +86,36 @@
             },
             {
                 "id": "conception",
-                "label": "Conception",
+                "label": {
+                    "fr": "Conception",
+                    "en": "Design & Structure",
+                    "ja": "設計"
+                },
                 "items": [
-                    "architecture de l'information",
-                    "gestion de projet",
-                    "résolution de problèmes"
+                    {
+                        "fr": "architecture de l'information",
+                        "en": "information architecture",
+                        "ja": "情報設計"
+                    },
+                    {
+                        "fr": "gestion de projet",
+                        "en": "project management",
+                        "ja": "プロジェクト管理"
+                    },
+                    {
+                        "fr": "résolution de problèmes",
+                        "en": "problem solving",
+                        "ja": "課題解決"
+                    }
                 ]
             },
             {
                 "id": "creative-tools",
-                "label": "Outils créatifs",
+                "label": {
+                    "fr": "Outils créatifs",
+                    "en": "Creative Tools",
+                    "ja": "クリエイティブツール"
+                },
                 "items": [
                     "Figma",
                     "Canva",
