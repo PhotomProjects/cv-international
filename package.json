@@ -5,13 +5,11 @@
     "scripts": {
         "build": "node build.mjs",
         "watch:build": "chokidar \"src/**/*\" -c \"npm run build\"",
-        "preview": "live-server dist --quiet --wait=300",
+        "preview": "node preview.mjs",
         "dev": "npm run build && concurrently -k \"npm:watch:build\" \"npm:preview\""
     },
     "devDependencies": {
         "chokidar-cli": "^3.0.0",
-        "concurrently": "^9.2.1",
-        "live-server": "^1.2.2",
-        "serve": "^14.2.6"
+        "concurrently": "^9.2.1"
     }
 }
