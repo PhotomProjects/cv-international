@@ -1,0 +1,20 @@
+:root {
+    --bg-color: #008080;
+    --surface-color: #ffffff;
+    --text-color: #1f2933;
+    --muted-text: #374151;
+    --link-color: #067dcb;
+
+    --border-color: #000000;
+    --border-soft: #c0c0c0;
+
+    --btn-bg: #c0c0c0;
+
+    --titlebar-start: #000080;
+    --titlebar-end: #067dcb;
+
+    --container-width: 860px;
+
+    --font-base: 16px;
+    --line-height: 1.5;
+}

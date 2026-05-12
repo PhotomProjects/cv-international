@@ -1,0 +1,77 @@
+.print-header {
+    display: none;
+}
+
+@page {
+    size: 21cm 29.7cm;
+    margin-top: 1cm;
+}
+
+@media print {
+    html, body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    html.dark {
+        --bg-color: #ffffff;
+        --text-color: #000000;
+        --muted-text: #000000;
+        --border-color: #000000;
+        --link-color: #000000;
+        --btn-bg: #ffffff;
+        --btn-hover: #ffffff;
+    }
+
+    div.header-actions, div.social-links, .rirekisho {
+        display: none;
+    }
+
+    header {
+        display: none;
+    }
+
+    .print-header {
+        display: block;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .print-header span {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    main {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    section {
+        margin-top: 0.8cm;
+    }
+
+    .window-content section article p {
+        display: none;
+    }
+
+    body h1 {
+        font-size: 16pt;
+    }
+
+    body h2 {
+        font-size: 14pt;
+    }
+
+    body h3 {
+        font-size: 12pt;
+    }
+
+    p, li {
+        font-size: 11pt;
+        line-height: 1.1;
+    }
+}

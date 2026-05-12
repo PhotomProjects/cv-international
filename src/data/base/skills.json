@@ -54,24 +54,6 @@
                 ]
             },
             {
-                "id": "backend",
-                "label": {
-                    "fr": "Back end",
-                    "en": "Back end",
-                    "ja": "バックエンド"
-                },
-                "items": [
-                    "Node.js",
-                    "PHP",
-                    {
-                        "fr": "base de données",
-                        "en": "databases",
-                        "ja": "データベース"
-                    },
-                    "SQL"
-                ]
-            },
-            {
                 "id": "tools",
                 "label": {
                     "fr": "Outils / environnement",
