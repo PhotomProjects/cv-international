@@ -77,6 +77,17 @@ async function loadJson(relativePath) {
   }
 }
 
+async function loadTemplate(relativePath) {
+  const filePath = path.join(SRC, relativePath);
+  return readFile(filePath, "utf-8");
+}
+
+function renderTemplate(template, data) {
+  return Object.entries(data).reduce((output, [key, value]) => {
+    return output.replaceAll(`{{${key}}}`, value ?? "");
+  }, template);
+}
+
 // Escape unsafe HTML characters before injecting text into markup
 function escapeHtml(value = "") {
     return String(value)
@@ -238,7 +249,8 @@ function renderLanguageSwitcher(currentLocale) {
     <nav class="language-switcher" aria-label="Language switcher">
       <ul>
         ${SUPPORTED_LOCALES.map((locale) => {
-          const isActive = locale === currentLocale ? "active" : "";
+          const isActive = locale === currentLocale;
+          const activeClass = isActive ? "active" : "";
           const ariaCurrent = isActive ? 'aria-current="page"' : "";
 
           return `
@@ -307,7 +319,7 @@ function renderSkills(skills, locale) {
 
 // Render the projects section
 function renderProjects(projects, locale) {
-  const labels = PROJECT_LINK_LABELS[locale] ?? PROJECT_LINK_LABELS[DEFAULT_LOCALE];
+  const projectLinkLabels = PROJECT_LINK_LABELS[locale] ?? PROJECT_LINK_LABELS[DEFAULT_LOCALE];
 
   return (projects?.items ?? [])
     .map((project) => {
@@ -317,11 +329,11 @@ function renderProjects(projects, locale) {
       const highlightsHtml = renderListItems(project.highlights ?? [], locale);
 
       const liveLink = project?.links?.live
-        ? `<a href="${escapeHtml(project.links.live)}" target="_blank" rel="noopener noreferrer">${labels.viewProject}</a>`
+        ? `<a href="${escapeHtml(project.links.live)}" target="_blank" rel="noopener noreferrer">${projectLinkLabels.viewProject}</a>`
         : "";
 
       const githubLink = project?.links?.github
-        ? `<a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer">${labels.github}</a>`
+        ? `<a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer">${projectLinkLabels.github}</a>`
         : "";
 
       const linksHtml = [liveLink, githubLink].filter(Boolean).join(" · ");
@@ -366,11 +378,12 @@ async function buildDesignerPage(locale) {
   const languages = await loadJson("data/base/languages.json");
   const localeCommon = await loadJson(`locales/${locale}/common.json`);
   const localeDesigner = await loadJson(`locales/${locale}/cv-designer.json`);
+  const template = await loadTemplate("templates/cv.html");
 
   const outDir = path.join(DIST, locale, "cv", DEFAULT_VARIANT);
   await mkdir(outDir, { recursive: true });
 
-   const pageTitle =
+  const pageTitle =
     localeDesigner?.cv?.designer?.title ??
     getLocalizedValue(profile.headline, locale) ??
     "Designer";
@@ -380,9 +393,6 @@ async function buildDesignerPage(locale) {
 
   const summaryLabel =
     localeCommon?.sections?.summary ?? "Summary";
-
-  const contactLabel =
-    localeCommon?.sections?.contact ?? "Contact";
 
   const educationLabel =
     localeCommon?.sections?.education ?? "Education";
@@ -395,8 +405,9 @@ async function buildDesignerPage(locale) {
 
   const languagesLabel =
     localeCommon?.sections?.languages ?? "Languages";
-
-  const labels = PROJECT_LINK_LABELS[locale] ?? PROJECT_LINK_LABELS[DEFAULT_LOCALE];
+  
+  const printLabel =
+    localeCommon?.ui?.print ?? "Imprimer";
 
   // Render HTML fragments
   const educationHtml = renderEducation(education, locale);
@@ -404,122 +415,50 @@ async function buildDesignerPage(locale) {
   const projectsHtml = renderProjects(projects, locale);
   const languagesHtml = renderLanguages(languages, locale);
   const languageSwitcherHtml = renderLanguageSwitcher(locale);
-
-  // Contact / links
   const socialLinksHtml = renderSocialLinks(contact, locale);
+  
+  const html = renderTemplate(template, {
+    lang: escapeHtml(locale),
+    document_title: `${escapeHtml(pageTitle)} - ${escapeHtml(profile.name ?? "")}`,
+    meta_description: escapeHtml(pageSummary),
+    body_class: "win98-theme",
+    cv_variant: escapeHtml(DEFAULT_VARIANT),
 
-  // Generate the full HTML page
-  const html = `<!DOCTYPE html>
-<html lang="${escapeHtml(locale)}">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${escapeHtml(pageTitle)} - ${escapeHtml(profile.name ?? "")}</title>
-  <meta name="description" content="${escapeHtml(pageSummary)}" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <link rel="icon" href="/assets/img/favicon.png" />
-</head>
-<body>
-  <header>
-    <h1>${escapeHtml(profile.name ?? "")}</h1>
-    <p>${escapeHtml(pageTitle)}</p>
+    profile_name: escapeHtml(profile.name ?? ""),
+    page_title: escapeHtml(pageTitle),
 
-    <address>
-      ${contact?.location ? `<p>${escapeHtml(contact.location)}</p>` : ""}
-      ${
-        contact?.email
-          ? `<p><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></p>`
-          : ""
-      }
-      ${
-        contact?.links?.portfolio
-          ? `<p><a href="${escapeHtml(contact.links.portfolio)}" target="_blank" rel="noopener noreferrer">${escapeHtml(contact.links.portfolio)}</a></p>`
-          : ""
-      }
-    </address>
+    contact_location: contact?.location
+      ? `<p>${escapeHtml(contact.location)}</p>`
+      : "",
 
-    ${languageSwitcherHtml}
-    ${socialLinksHtml}
+    contact_email: contact?.email
+      ? `<p><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></p>`
+      : "",
 
-  </header>
+    contact_portfolio: contact?.links?.portfolio
+      ? `<p><a href="${escapeHtml(contact.links.portfolio)}" target="_blank" rel="noopener noreferrer">${escapeHtml(contact.links.portfolio)}</a></p>`
+      : "",
 
-  <main>
-    <div class="window">
-      <div class="titlebar">
-        <div class="title">
-          <img src="/assets/img/icons/desktop/resume.webp" alt="" aria-hidden="true">
-          <span>CV</span>
-        </div>
-        <div class="controls">
-          <button type="button" aria-label="Minimize window" aria-controls="win-home" disabled>
-            <img src="/assets/img/icons/window/minimize.webp" alt="">
-          </button>
-          <button type="button" aria-label="Maximize window" aria-controls="win-home" disabled>
-            <img src="/assets/img/icons/window/maximize.webp" alt="">
-          </button>
-          <button type="button" aria-label="Close window" aria-controls="win-home" disabled>
-            <img src="/assets/img/icons/window/close.webp" alt="">
-          </button>
-        </div>
-      </div>
-      <h2 class="unique-h2">Curriculum vitæ</h2>
-      <div class="window-content">
-        <section class="print-header">
-          <span>AUTHELIN Florian - ${escapeHtml(pageTitle)}</span>
-        </section>
+    language_switcher: languageSwitcherHtml,
+    social_links: socialLinksHtml,
 
-        <section>
-          <h2>${escapeHtml(summaryLabel)}</h2>
-          <p>${escapeHtml(pageSummary)}</p>
-        </section>
+    print: escapeHtml(printLabel),
 
-        <section>
-          <h2>${escapeHtml(educationLabel)}</h2>
-          ${educationHtml}
-        </section>
+    summary_label: escapeHtml(summaryLabel),
+    page_summary: escapeHtml(pageSummary),
 
-        <section>
-          <h2>${escapeHtml(skillsLabel)}</h2>
-          <ul>
-            ${skillsHtml}
-          </ul>
-        </section>
+    education_label: escapeHtml(educationLabel),
+    education_html: educationHtml,
 
-        <section>
-          <h2>${escapeHtml(projectsLabel)}</h2>
-          ${projectsHtml}
-        </section>
+    skills_label: escapeHtml(skillsLabel),
+    skills_html: skillsHtml,
 
-        <section>
-          <h2>${escapeHtml(languagesLabel)}</h2>
-          <ul>
-            ${languagesHtml}
-          </ul>
-        </section>
-      </div>
-    </div>
-  </main>
+    projects_label: escapeHtml(projectsLabel),
+    projects_html: projectsHtml,
 
-  <script>
-    (() => {
-      try {
-        localStorage.setItem("locale", "${locale}");
-        localStorage.setItem("cvVariant", "${DEFAULT_VARIANT}");
-
-        document.querySelectorAll("[data-locale]").forEach((link) => {
-          link.addEventListener("click", () => {
-            localStorage.setItem("locale", link.dataset.locale);
-            localStorage.setItem("cvVariant", "${DEFAULT_VARIANT}");
-          });
-        });
-      } catch {
-        // Ignore storage errors silently
-      }
-    })();
-  </script>
-  <script src="/assets/js/script.js" defer></script>
-</body>
-</html>`;
+    languages_label: escapeHtml(languagesLabel),
+    languages_html: languagesHtml
+  });
 
   await writeFile(path.join(outDir, "index.html"), html, "utf-8");
 }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{document_title}}</title>
+    <meta name="description" content="{{meta_description}}"/>
+    <link rel="icon" href="/assets/img/favicon.png"/>
+    <link rel="stylesheet" href="/assets/css/style.css"/>
+    <script src="/assets/js/cv-ui.js" defer></script>
+    <script src="/assets/js/script.js" defer></script>
+</head>
+<body class="{{body_class}}" data-cv-variant="{{cv_variant}}">
+    
+    <header>
+        <h1>{{profile_name}}</h1>
+        <p>{{page_title}}</p>
+    
+        <address>
+            {{contact_location}}
+            {{contact_email}}
+            {{contact_portfolio}}
+        </address>
+
+        {{language_switcher}}
+        {{social_links}}
+
+        <button type="button" data-action="print">{{print}}</button>
+    </header>
+
+    <main>
+        <div class="window">
+            <div class="titlebar">
+                <div class="title">
+                    <img src="/assets/img/icons/desktop/resume.webp" alt="" aria-hidden="true">
+                    <span>CV</span>
+                </div>
+
+                <div class="controls">
+                    <button type="button" aria-label="Minimize window" disabled>
+                        <img src="/assets/img/icons/window/minimize.webp" alt="">
+                    </button>
+                    <button type="button" aria-label="Maximize window" disabled>
+                        <img src="/assets/img/icons/window/maximize.webp" alt="">
+                    </button>
+                    <button type="button" aria-label="Close window" disabled>
+                        <img src="/assets/img/icons/window/close.webp" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <h2 class="unique-h2">Curriculum vitæ</h2>
+
+            <div class="window-content">
+                <section class="print-header">
+                    <span>{{profile_name}} - {{page_title}}</span>
+                </section>
+
+                <section>
+                    <h2>{{summary_label}}</h2>
+                    <p>{{page_summary}}</p>
+                </section>
+
+                <section>
+                    <h2>{{education_label}}</h2>
+                    {{education_html}}
+                </section>
+
+                <section>
+                    <h2>{{skills_label}}</h2>
+                    <ul>
+                        {{skills_html}}
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>{{projects_label}}</h2>
+                    {{projects_html}}
+                </section>
+
+                <section>
+                    <h2>{{languages_label}}</h2>
+                    <ul>
+                        {{languages_html}}
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

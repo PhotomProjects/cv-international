@@ -1,26 +1,5 @@
-// ------------
-// | DARKMODE |
-// ------------
-
-const toggleButton = document.getElementById("theme-toggle");
-const root = document.documentElement;
-
-function syncThemeUI() {
-  const isDark = root.classList.contains("dark");
-  if (toggleButton) {
-    toggleButton.textContent = isDark ? "☀️" : "🌙";
-    toggleButton.setAttribute("aria-pressed", String(isDark));
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.CVUI && typeof window.CVUI.init === "function") {
+    window.CVUI.init();
   }
-}
-
-if (toggleButton) {
-    syncThemeUI();
-
-toggleButton.addEventListener("click", () => {
-    root.classList.toggle("dark");
-    const isDark = root.classList.contains("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    syncThemeUI();
-   });
-}
-
+});
