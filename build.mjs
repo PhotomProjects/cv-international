@@ -478,12 +478,13 @@ async function buildRootIndex() {
   <script>
     (() => {
       const supportedLocales = ${JSON.stringify(SUPPORTED_LOCALES)};
-      const supportedVariants = ["designer"];
       const defaultLocale = "${DEFAULT_LOCALE}";
-      const defaultVariant = "${DEFAULT_VARIANT}";
+      const forcedVariant = "${DEFAULT_VARIANT}";
 
       function normalizeLocale(value) {
-        if (!value) return defaultLocale;
+        if (!value) {
+          return defaultLocale;
+        }
 
         const shortLocale = value.toLowerCase().slice(0, 2);
 
@@ -494,30 +495,24 @@ async function buildRootIndex() {
         return defaultLocale;
       }
 
-      function normalizeVariant(value) {
-        if (!value) return defaultVariant;
-
-        return supportedVariants.includes(value)
-          ? value
-          : defaultVariant;
-      }
-
       let locale = defaultLocale;
-      let variant = defaultVariant;
 
       try {
-        locale = normalizeLocale(localStorage.getItem("locale"));
-        variant = normalizeVariant(localStorage.getItem("cvVariant"));
+        const storedLocale = localStorage.getItem("locale");
 
-        if (!localStorage.getItem("locale")) {
+        if (storedLocale) {
+          locale = normalizeLocale(storedLocale);
+        } else {
           locale = normalizeLocale(navigator.language);
         }
+
+        // Force the published variant for V1
+        localStorage.setItem("cvVariant", forcedVariant);
       } catch {
         locale = normalizeLocale(navigator.language);
-        variant = defaultVariant;
       }
 
-      window.location.replace('/' + locale + '/cv/' + variant + '/');
+      window.location.replace('/' + locale + '/cv/' + forcedVariant + '/');
     })();
   </script>
 </head>
