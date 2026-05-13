@@ -478,6 +478,7 @@ async function buildRootIndex() {
   <script>
     (() => {
       const supportedLocales = ${JSON.stringify(SUPPORTED_LOCALES)};
+      const supportedVariants = ["designer"];
       const defaultLocale = "${DEFAULT_LOCALE}";
       const defaultVariant = "${DEFAULT_VARIANT}";
 
@@ -493,18 +494,27 @@ async function buildRootIndex() {
         return defaultLocale;
       }
 
+      function normalizeVariant(value) {
+        if (!value) return defaultVariant;
+
+        return supportedVariants.includes(value)
+          ? value
+          : defaultVariant;
+      }
+
       let locale = defaultLocale;
       let variant = defaultVariant;
 
       try {
         locale = normalizeLocale(localStorage.getItem("locale"));
-        variant = localStorage.getItem("cvVariant") || defaultVariant;
+        variant = normalizeVariant(localStorage.getItem("cvVariant"));
 
         if (!localStorage.getItem("locale")) {
           locale = normalizeLocale(navigator.language);
         }
       } catch {
         locale = normalizeLocale(navigator.language);
+        variant = defaultVariant;
       }
 
       window.location.replace('/' + locale + '/cv/' + variant + '/');
