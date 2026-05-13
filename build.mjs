@@ -416,6 +416,13 @@ async function buildDesignerPage(locale) {
   const languagesHtml = renderLanguages(languages, locale);
   const languageSwitcherHtml = renderLanguageSwitcher(locale);
   const socialLinksHtml = renderSocialLinks(contact, locale);
+
+  const portfolioBase = "https://authelinflorian.dev";
+  const portfolioUrl = `${portfolioBase}/?lang=${locale}`;
+  const portfolioLabel =
+  locale === "fr" ? "Portfolio" :
+  locale === "ja" ? "ポートフォリオ" :
+  "Portfolio";
   
   const html = renderTemplate(template, {
     lang: escapeHtml(locale),
@@ -435,9 +442,7 @@ async function buildDesignerPage(locale) {
       ? `<p><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></p>`
       : "",
 
-    contact_portfolio: contact?.links?.portfolio
-      ? `<p><a href="${escapeHtml(contact.links.portfolio)}" target="_blank" rel="noopener noreferrer">${escapeHtml(contact.links.portfolio)}</a></p>`
-      : "",
+    contact_portfolio: `<p><a href="${escapeHtml(portfolioUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(portfolioLabel)}</a></p>`,
 
     language_switcher: languageSwitcherHtml,
     social_links: socialLinksHtml,
