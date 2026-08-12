@@ -2,107 +2,166 @@
     "skills": {
         "groups": [
             {
-                "id": "design",
+                "id": "interface-design",
                 "label": {
-                    "fr": "Création numérique / web",
-                    "en": "Digital / Web Creation",
-                    "ja": "デジタル／Web制作"
+                    "fr": "Conception d'interfaces",
+                    "en": "Interface Design",
+                    "ja": "インターフェース設計"
                 },
                 "items": [
                     {
-                        "fr": "intégration HTML5/CSS3",
-                        "en": "HTML5/CSS3 integration",
-                        "ja": "HTML5/CSS3実装"
+                        "fr": "conception UX/UI",
+                        "en": "UX/UI design",
+                        "ja": "UX/UIデザイン"
                     },
+                    {
+                        "fr": "wireframes et maquettage",
+                        "en": "wireframing and mockups",
+                        "ja": "ワイヤーフレーム・モックアップ制作"
+                    },
+                    {
+                        "fr": "hiérarchisation visuelle",
+                        "en": "visual hierarchy",
+                        "ja": "視覚的階層設計"
+                    }
+                ]
+            },
+            {
+                "id": "frontend",
+                "label": {
+                    "fr": "Développement front-end",
+                    "en": "Front-End Development",
+                    "ja": "フロントエンド開発"
+                },
+                "items": [
+                    {
+                        "fr": "HTML sémantique",
+                        "en": "semantic HTML",
+                        "ja": "セマンティックHTML"
+                    },
+                    "CSS",
+                    "JavaScript (ES6+)",
                     {
                         "fr": "responsive design",
                         "en": "responsive design",
                         "ja": "レスポンシブデザイン"
                     },
                     {
-                        "fr": "hiérarchisation visuelle",
-                        "en": "visual hierarchy",
-                        "ja": "視覚的階層設計"
-                    },
-                    {
-                        "fr": "bases en design web",
-                        "en": "foundations in web design",
-                        "ja": "Webデザインの基礎"
-                    },
-                    {
-                        "fr": "maquettage",
-                        "en": "wireframing / mockups",
-                        "ja": "ワイヤーフレーム／モックアップ"
-                    },
-                    "UX / UI"
+                        "fr": "internationalisation FR/EN/JA",
+                        "en": "FR/EN/JA internationalization",
+                        "ja": "フランス語・英語・日本語への国際化対応"
+                    }
                 ]
             },
             {
-                "id": "frontend",
+                "id": "web-quality",
                 "label": {
-                    "fr": "Front end",
-                    "en": "Front end",
-                    "ja": "フロントエンド"
+                    "fr": "Qualité web",
+                    "en": "Web Quality",
+                    "ja": "Web品質"
                 },
                 "items": [
-                    "JavaScript (ES6+)",
-                    "TypeScript",
-                    "React",
-                    "Vue",
-                    "Astro",
-                    "Tailwind CSS"
+                    {
+                        "fr": "accessibilité web (WCAG)",
+                        "en": "web accessibility (WCAG)",
+                        "ja": "Webアクセシビリティ（WCAG）"
+                    },
+                    {
+                        "fr": "bases du SEO technique",
+                        "en": "technical SEO fundamentals",
+                        "ja": "テクニカルSEOの基礎"
+                    },
+                    {
+                        "fr": "maintenabilité du code",
+                        "en": "code maintainability",
+                        "ja": "コードの保守性"
+                    }
+                ]
+            },
+            {
+                "id": "design-tools",
+                "label": {
+                    "fr": "Outils de design",
+                    "en": "Design Tools",
+                    "ja": "デザインツール"
+                },
+                "items": [
+                    "Figma",
+                    "Canva",
+                    "Affinity Designer",
+                    "Affinity Photo",
+                    "Procreate"
+                ]
+            },
+            {
+                "id": "backend-fundamentals",
+                "label": {
+                    "fr": "Bases back-end",
+                    "en": "Back-end Fundamentals",
+                    "ja": "バックエンド基礎"
+                },
+                "items": [
+                    "PHP",
+                    {
+                        "fr": "SQL et bases de données relationnelles",
+                        "en": "SQL and relational databases",
+                        "ja": "SQL・リレーショナルデータベース"
+                    },
+                    {
+                        "fr": "MySQL, PDO et requêtes préparées",
+                        "en": "MySQL, PDO, and prepared statements",
+                        "ja": "MySQL・PDO・プリペアドステートメント"
+                    }
                 ]
             },
             {
                 "id": "tools",
                 "label": {
-                    "fr": "Outils / environnement",
-                    "en": "Tools / Environment",
-                    "ja": "ツール／環境"
+                    "fr": "Outils et environnement",
+                    "en": "Tools and Environment",
+                    "ja": "ツール・開発環境"
                 },
                 "items": [
-                    "Git",
+                    "Git / GitHub",
                     "Docker",
                     "Cloudflare Pages"
                 ]
             },
             {
-                "id": "conception",
+                "id": "audiovisual-tools",
                 "label": {
-                    "fr": "Conception",
-                    "en": "Design & Structure",
-                    "ja": "設計"
+                    "fr": "Outils audiovisuels",
+                    "en": "Audiovisual Tools",
+                    "ja": "映像・音声ツール"
                 },
                 "items": [
-                    {
-                        "fr": "architecture de l'information",
-                        "en": "information architecture",
-                        "ja": "情報設計"
-                    },
-                    {
-                        "fr": "gestion de projet",
-                        "en": "project management",
-                        "ja": "プロジェクト管理"
-                    },
-                    {
-                        "fr": "résolution de problèmes",
-                        "en": "problem solving",
-                        "ja": "課題解決"
-                    }
+                    "DaVinci Resolve",
+                    "Audacity"
                 ]
             },
             {
-                "id": "creative-tools",
+                "id": "marketing-analysis",
                 "label": {
-                    "fr": "Outils créatifs",
-                    "en": "Creative Tools",
-                    "ja": "クリエイティブツール"
+                    "fr": "Marketing et analyse",
+                    "en": "Marketing and Business Analysis",
+                    "ja": "マーケティング・ビジネス分析"
                 },
                 "items": [
-                    "Figma",
-                    "Canva",
-                    "Procreate",
-                    "DaVinci Resolve"
+                    {
+                        "fr": "analyse SWOT",
+                        "en": "SWOT analysis",
+                        "ja": "SWOT分析"
+                    },
+                    {
+                        "fr": "création de personas",
+                        "en": "persona development",
+                        "ja": "ペルソナ設計"
+                    },
+                    {
+                        "fr": "veille informationnelle et concurrentielle",
+                        "en": "market and competitive intelligence",
+                        "ja": "情報収集・競合調査"
+                    }
                 ]
             }
         ]

@@ -13,30 +13,25 @@
                 "JavaScript"
             ],
             "summary": {
-                "fr": "Conception d'une interface inspirée d'un environnement desktop rétro, avec recherche d'identité visuelle forte.",
-                "en": "Design of an interface inspired by a retro desktop environment, with a strong focus on visual identity.",
-                "ja": "レトロなデスクトップ環境に着想を得たインターフェースを設計し、強いビジュアルアイデンティティを追求したプロジェクトです。"
+                "fr": "Conception et développement d'un portfolio multilingue inspiré de Windows 98, associant identité visuelle rétro, système de fenêtres interactif et navigation responsive.",
+                "en": "Design and development of a multilingual portfolio inspired by Windows 98, combining a retro visual identity, an interactive window system, and responsive navigation.",
+                "ja": "Windows 98に着想を得た多言語ポートフォリオを設計・開発。レトロなビジュアルアイデンティティ、インタラクティブなウィンドウシステム、レスポンシブナビゲーションを組み合わせています。"
             },
             "highlights": [
                 {
-                    "fr": "Travail sur la hiérarchie visuelle, l'organisation des fenêtres et l'expérience de navigation",
-                    "en": "Work on visual hierarchy, window organization, and navigation experience",
+                    "fr": "Conception de la hiérarchie visuelle, de l'organisation des fenêtres et de l'expérience de navigation",
+                    "en": "Design of the visual hierarchy, window organization, and navigation experience",
                     "ja": "視覚的階層、ウィンドウ構成、ナビゲーション体験を設計"
                 },
                 {
                     "fr": "Développement d'un système de fenêtres réutilisable avec gestion du focus, de l'empilement et des interactions",
                     "en": "Development of a reusable window system with focus, stacking, and interaction management",
-                    "ja": "フォーカス、重なり順、操作性を管理する再利用可能なウィンドウシステムを開発"
+                    "ja": "フォーカス、重なり順、インタラクションを管理する再利用可能なウィンドウシステムを開発"
                 },
                 {
-                    "fr": "Mise en place de l'i18n (FR/EN/JP) et d'un comportement responsive (desktop/tablette/mobile)",
-                    "en": "Implementation of i18n (FR/EN/JP) and responsive behavior across desktop, tablet, and mobile",
-                    "ja": "多言語対応（FR/EN/JP）とレスポンシブ対応（PC／タブレット／モバイル）を実装"
-                },
-                {
-                    "fr": "Déploiement sur Cloudflare Pages avec intégration continue via Git",
-                    "en": "Deployment on Cloudflare Pages with continuous integration through Git",
-                    "ja": "Git連携による継続的デプロイを用いてCloudflare Pagesに公開"
+                    "fr": "Mise en place de l'internationalisation en français, anglais et japonais, avec une interface adaptée aux ordinateurs, tablettes et mobiles",
+                    "en": "Implementation of French, English, and Japanese localization, with an interface adapted to desktop, tablet, and mobile devices",
+                    "ja": "フランス語・英語・日本語への多言語対応と、PC・タブレット・モバイル向けのレスポンシブインターフェースを実装"
                 }
             ],
             "links": {

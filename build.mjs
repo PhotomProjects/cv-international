@@ -8,6 +8,7 @@ const DIST = path.join(ROOT, "dist");
 
 // Build config
 const SUPPORTED_LOCALES = ["fr", "en", "ja"];
+const VISIBLE_LOCALES = ["fr", "en"];
 const DEFAULT_LOCALE = "fr";
 const SITE_ORIGIN = "https://cv.authelinflorian.dev";
 
@@ -317,7 +318,7 @@ function renderLanguageSwitcher(currentLocale) {
   return `
     <nav class="language-switcher" aria-label="Language switcher">
       <ul>
-        ${SUPPORTED_LOCALES.map((locale) => {
+        ${VISIBLE_LOCALES.map((locale) => {
           const isActive = locale === currentLocale;
           const activeClass = isActive ? "active" : "";
           const ariaCurrent = isActive ? 'aria-current="page"' : "";
@@ -454,9 +455,7 @@ async function buildCvPage(locale) {
   await mkdir(outDir, { recursive: true });
 
   const pageTitle =
-    localeCv?.cv?.title ??
-    getLocalizedValue(profile.headline, locale) ??
-    "CV";
+    localeCv?.cv?.title ?? "CV";
 
   const pageSummary =
     localeCv?.cv?.summary ?? "";

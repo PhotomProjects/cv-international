@@ -23,18 +23,6 @@
                 "en": "Professional (B2)",
                 "ja": "業務レベル（B2）"
             }
-        },
-        {
-            "name": {
-                "fr": "Japonais",
-                "en": "Japanese",
-                "ja": "日本語"
-            },
-            "level": {
-                "fr": "Débutant (A1)",
-                "en": "Beginner (A1)",
-                "ja": "初級（A1）"
-            }
         }
     ]
 }
