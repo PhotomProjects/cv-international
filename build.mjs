@@ -145,6 +145,28 @@ function renderHreflangLinks() {
   return [...localeLinks, defaultLink].join("\n    ");
 }
 
+async function buildSitemap() {
+  const urlEntries = SUPPORTED_LOCALES.map((locale) => {
+    const url = `${SITE_ORIGIN}/${locale}/cv/`;
+
+    return `  <url>
+    <loc>${escapeHtml(url)}</loc>
+  </url>`;
+  }).join("\n");
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlEntries}
+</urlset>
+`;
+
+  await writeFile(
+    path.join(DIST, "sitemap.xml"),
+    sitemap,
+    "utf-8"
+  );
+}
+
 // Get a localized value.
 // Supports:
 // - plain strings
@@ -610,6 +632,9 @@ async function main() {
 
   // 5) Generate the root redirect page
   await buildRootIndex();
+
+  // 6) Generate the XML sitemap
+  await buildSitemap();
 
   console.log("Build completed successfully.");
 }
