@@ -9,7 +9,6 @@ const DIST = path.join(ROOT, "dist");
 // Build config
 const SUPPORTED_LOCALES = ["fr", "en", "ja"];
 const DEFAULT_LOCALE = "fr";
-const DEFAULT_VARIANT = "designer";
 
 // Small UI labels that are easier to keep in code for now
 const PROJECT_LINK_LABELS = {
@@ -63,6 +62,41 @@ async function copyDirIfExists(from, to) {
   }
     await mkdir(path.dirname(to), { recursive: true });
     await cp(from, to, { recursive: true });
+}
+
+// Bundle the modular CSS files into one production stylesheet
+async function buildCss() {
+  const sourceDir = path.join(SRC, "assets", "css");
+  const outputDir = path.join(DIST, "assets", "css");
+  const entryPath = path.join(sourceDir, "style.css");
+
+  const importPattern = /@import\s+url\(["']?\/assets\/css\/([^"')]+)["']?\);\s*/g;
+
+  const entryCss = await readFile(entryPath, "utf-8");
+  const imports = [...entryCss.matchAll(importPattern)];
+  const cssParts = [];
+
+  for (const [, fileName] of imports) {
+    const filePath = path.join(sourceDir, fileName);
+    const content = await readFile(filePath, "utf-8");
+
+    cssParts.push(`/* ${fileName} */\n${content.trim()}`);
+  }
+
+  const remainingCss = entryCss.replace(importPattern, "").trim();
+
+  if (remainingCss) {
+    cssParts.push(`/* style.css */\n${remainingCss}`);
+  }
+
+  await rm(outputDir, { recursive: true, force: true });
+  await mkdir(outputDir, { recursive: true });
+
+  await writeFile(
+    path.join(outputDir, "style.css"),
+    `${cssParts.join("\n\n")}\n`,
+    "utf-8"
+  );
 }
 
 // Read and parse a JSON file inside src/
@@ -256,7 +290,7 @@ function renderLanguageSwitcher(currentLocale) {
           return `
             <li>
               <a
-                href="/${locale}/cv/${DEFAULT_VARIANT}/"
+                href="/${locale}/cv/"
                 data-locale="${locale}"
                 class="${isActive}"
                 lang="${locale}"
@@ -369,7 +403,7 @@ function renderLanguages(languages, locale) {
     .join("");
 }
 
-async function buildDesignerPage(locale) {
+async function buildCvPage(locale) {
   const profile = await loadJson("data/base/profile.json");
   const contact = await loadJson("data/base/contact.json");
   const education = await loadJson("data/base/education.json");
@@ -377,19 +411,19 @@ async function buildDesignerPage(locale) {
   const projects = await loadJson("data/base/projects.json");
   const languages = await loadJson("data/base/languages.json");
   const localeCommon = await loadJson(`locales/${locale}/common.json`);
-  const localeDesigner = await loadJson(`locales/${locale}/cv-designer.json`);
+  const localeCv = await loadJson(`locales/${locale}/cv.json`);
   const template = await loadTemplate("templates/cv.html");
 
-  const outDir = path.join(DIST, locale, "cv", DEFAULT_VARIANT);
+  const outDir = path.join(DIST, locale, "cv");
   await mkdir(outDir, { recursive: true });
 
   const pageTitle =
-    localeDesigner?.cv?.designer?.title ??
+    localeCv?.title ??
     getLocalizedValue(profile.headline, locale) ??
-    "Designer";
+    "CV";
 
   const pageSummary =
-    localeDesigner?.cv?.designer?.summary ?? "";
+    localeCv?.summary ?? "";
 
   const summaryLabel =
     localeCommon?.sections?.summary ?? "Summary";
@@ -429,7 +463,6 @@ async function buildDesignerPage(locale) {
     document_title: `${escapeHtml(pageTitle)} - ${escapeHtml(profile.name ?? "")}`,
     meta_description: escapeHtml(pageSummary),
     body_class: "win98-theme",
-    cv_variant: escapeHtml(DEFAULT_VARIANT),
 
     profile_name: escapeHtml(profile.name ?? ""),
     page_title: escapeHtml(pageTitle),
@@ -471,7 +504,7 @@ async function buildDesignerPage(locale) {
 // Build the root index.html that redirects to the preferred locale
 async function buildRootIndex() {
   const fallbackLinks = SUPPORTED_LOCALES.map(
-    (locale) => `<li><a href="/${locale}/cv/${DEFAULT_VARIANT}/">${locale.toUpperCase()}</a></li>`
+    (locale) => `<li><a href="/${locale}/cv/">${locale.toUpperCase()}</a></li>`
   ).join("");
 
   const html = `<!DOCTYPE html>
@@ -484,7 +517,6 @@ async function buildRootIndex() {
     (() => {
       const supportedLocales = ${JSON.stringify(SUPPORTED_LOCALES)};
       const defaultLocale = "${DEFAULT_LOCALE}";
-      const forcedVariant = "${DEFAULT_VARIANT}";
 
       function normalizeLocale(value) {
         if (!value) {
@@ -511,13 +543,11 @@ async function buildRootIndex() {
           locale = normalizeLocale(navigator.language);
         }
 
-        // Force the published variant for V1
-        localStorage.setItem("cvVariant", forcedVariant);
       } catch {
         locale = normalizeLocale(navigator.language);
       }
 
-      window.location.replace('/' + locale + '/cv/' + forcedVariant + '/');
+      window.location.replace('/' + locale + '/cv/');
     })();
   </script>
 </head>
@@ -544,12 +574,14 @@ async function main() {
   // 2) Copy shared assets
   await copyDirIfExists(path.join(SRC, "assets"), path.join(DIST, "assets"));
 
+  await buildCss();
+
   // 3) Copy static files as-is
   await copyDirIfExists(path.join(SRC, "static"), DIST);
 
-  // 4) Generate all designer pages
+  // 4) Generate the CV page for each locale
   for (const locale of SUPPORTED_LOCALES) {
-    await buildDesignerPage(locale);
+    await buildCvPage(locale);
   }
 
   // 5) Generate the root redirect page

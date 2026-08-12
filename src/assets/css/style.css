@@ -4,13 +4,3 @@
 @import url("/assets/css/components.css");
 @import url("/assets/css/win98-theme.css");
 @import url("/assets/css/print.css");
-
-html.dark {
-    --bg-color: #0f172a;
-    --text-color: #e5e7eb;
-    --muted-text: #cbd5f5;
-    --border-color: #2a3a53;
-    --link-color: #60a5fa;
-    --btn-bg: #020617;
-    --btn-hover: #1e293b;
-}

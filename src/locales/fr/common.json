@@ -9,8 +9,6 @@
     },
     "ui": {
         "print": "Imprimer",
-        "downloadPdf": "Télécharger le PDF",
-        "designer": "Designer",
-        "fullstack": "Full Stack"
+        "downloadPdf": "Télécharger le PDF"
     }
 }

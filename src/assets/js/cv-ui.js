@@ -21,23 +21,10 @@
     return htmlLang.toLowerCase().slice(0, 2);
   }
 
-  // Read the current CV variant from the <body data-cv-variant="..."> attribute.
-  // Example: <body data-cv-variant="designer"> -> returns "designer"
-  function getCurrentVariant() {
-    const bodyVariant = document.body.dataset.cvVariant;
-
-    if (!bodyVariant) {
-      return "designer";
-    }
-
-    return bodyVariant;
-  }
-
-  // Save the current page state into localStorage.
-  // This helps the root redirect page know which locale/variant was used last.
+  // Save the current locale into localStorage.
+  // This helps the root redirect page remember the selected language.
   function persistCurrentPageState() {
     safeSetStorage("locale", getCurrentLocale());
-    safeSetStorage("cvVariant", getCurrentVariant());
   }
 
   // Add click listeners to language links.
@@ -54,7 +41,6 @@
         }
 
         safeSetStorage("locale", locale);
-        safeSetStorage("cvVariant", getCurrentVariant());
       });
     });
   }
@@ -81,7 +67,5 @@
   }
 
   // Expose a small public API on window.
-  window.CVUI = {
-    init: initCvUI
-  };
+initCvUI();
 })();

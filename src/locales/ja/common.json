@@ -9,8 +9,6 @@
     },
     "ui": {
         "print": "印刷",
-        "downloadPdf": "PDFをダウンロード",
-        "designer": "デザイナー",
-        "fullstack": "フルスタック"
+        "downloadPdf": "PDFをダウンロード"
     }
 }
