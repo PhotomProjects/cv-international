@@ -559,43 +559,11 @@ async function buildRootIndex() {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV Redirect</title>
   ${renderHreflangLinks()}
-  <script>
-    (() => {
-      const supportedLocales = ${JSON.stringify(SUPPORTED_LOCALES)};
-      const defaultLocale = "${DEFAULT_LOCALE}";
-
-      function normalizeLocale(value) {
-        if (!value) {
-          return defaultLocale;
-        }
-
-        const shortLocale = value.toLowerCase().slice(0, 2);
-
-        if (supportedLocales.includes(shortLocale)) {
-          return shortLocale;
-        }
-
-        return defaultLocale;
-      }
-
-      let locale = defaultLocale;
-
-      try {
-        const storedLocale = localStorage.getItem("locale");
-
-        if (storedLocale) {
-          locale = normalizeLocale(storedLocale);
-        } else {
-          locale = normalizeLocale(navigator.language);
-        }
-
-      } catch {
-        locale = normalizeLocale(navigator.language);
-      }
-
-      window.location.replace('/' + locale + '/cv/');
-    })();
-  </script>
+  <script
+    src="/assets/js/locale-redirect.js"
+    data-supported-locales="${escapeHtml(SUPPORTED_LOCALES.join(","))}"
+    data-default-locale="${escapeHtml(DEFAULT_LOCALE)}"
+  ></script>
 </head>
 <body>
   <main>
