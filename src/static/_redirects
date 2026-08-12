@@ -1,5 +1,13 @@
 /index.html / 301
-/lang/fr /lang/fr/ 301
-/lang/fr/index.html /lang/fr/ 301
-/lang/jp /lang/jp/ 301
-/lang/jp/index.html /lang/jp/ 301
+
+/lang/fr /fr/cv/ 301
+/lang/fr/ /fr/cv/ 301
+/lang/fr/index.html /fr/cv/ 301
+
+/lang/en /en/cv/ 301
+/lang/en/ /en/cv/ 301
+/lang/en/index.html /en/cv/ 301
+
+/lang/jp /ja/cv/ 301
+/lang/jp/ /ja/cv/ 301
+/lang/jp/index.html /ja/cv/ 301
