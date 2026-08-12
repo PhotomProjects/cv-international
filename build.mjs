@@ -9,6 +9,7 @@ const DIST = path.join(ROOT, "dist");
 // Build config
 const SUPPORTED_LOCALES = ["fr", "en", "ja"];
 const DEFAULT_LOCALE = "fr";
+const SITE_ORIGIN = "https://cv.authelinflorian.dev";
 
 // Small UI labels that are easier to keep in code for now
 const PROJECT_LINK_LABELS = {
@@ -130,6 +131,18 @@ function escapeHtml(value = "") {
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#39;");
+}
+
+function renderHreflangLinks() {
+  const localeLinks = SUPPORTED_LOCALES.map((locale) => {
+    const url = `${SITE_ORIGIN}/${locale}/cv/`;
+
+    return `<link rel="alternate" hreflang="${escapeHtml(locale)}" href="${escapeHtml(url)}"/>`;
+  });
+
+  const defaultLink = `<link rel="alternate" hreflang="x-default" href="${escapeHtml(`${SITE_ORIGIN}/`)}"/>`;
+
+  return [...localeLinks, defaultLink].join("\n    ");
 }
 
 // Get a localized value.
@@ -413,17 +426,25 @@ async function buildCvPage(locale) {
   const localeCommon = await loadJson(`locales/${locale}/common.json`);
   const localeCv = await loadJson(`locales/${locale}/cv.json`);
   const template = await loadTemplate("templates/cv.html");
+  const canonicalUrl = `${SITE_ORIGIN}/${locale}/cv/`;
 
   const outDir = path.join(DIST, locale, "cv");
   await mkdir(outDir, { recursive: true });
 
   const pageTitle =
-    localeCv?.title ??
+    localeCv?.cv?.title ??
     getLocalizedValue(profile.headline, locale) ??
     "CV";
 
   const pageSummary =
-    localeCv?.summary ?? "";
+    localeCv?.cv?.summary ?? "";
+
+  const seoDescription =
+    localeCv?.seo?.description ?? pageSummary;
+
+  const seoTitle =
+    localeCv?.seo?.title ??
+    `${pageTitle} - ${profile.name ?? ""}`;
 
   const summaryLabel =
     localeCommon?.sections?.summary ?? "Summary";
@@ -460,8 +481,10 @@ async function buildCvPage(locale) {
   
   const html = renderTemplate(template, {
     lang: escapeHtml(locale),
-    document_title: `${escapeHtml(pageTitle)} - ${escapeHtml(profile.name ?? "")}`,
-    meta_description: escapeHtml(pageSummary),
+    document_title: escapeHtml(seoTitle),
+    meta_description: escapeHtml(seoDescription),
+    canonical_url: escapeHtml(canonicalUrl),
+    hreflang_links: renderHreflangLinks(),
     body_class: "win98-theme",
 
     profile_name: escapeHtml(profile.name ?? ""),
@@ -513,6 +536,7 @@ async function buildRootIndex() {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV Redirect</title>
+  ${renderHreflangLinks()}
   <script>
     (() => {
       const supportedLocales = ${JSON.stringify(SUPPORTED_LOCALES)};
