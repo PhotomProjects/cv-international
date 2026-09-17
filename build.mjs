@@ -521,6 +521,10 @@ async function buildCvPage(locale) {
 
     contact_portfolio: `<p><a href="${escapeHtml(portfolioUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(portfolioLabel)}</a></p>`,
 
+    print_contact: escapeHtml(
+      [contact?.email, contact?.phone].filter(Boolean).join(" · "),
+    ),
+
     language_switcher: languageSwitcherHtml,
     social_links: socialLinksHtml,
 
