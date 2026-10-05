@@ -1,3 +1,8 @@
+> [!WARNING]
+> **Archived — old version**
+>
+> This project is no longer maintained. It is retained solely for historical reference.
+
 # Multilingual Web Designer and Front-End CV
 
 A static, multilingual online CV for a junior web designer and front-end developer. The interface uses a Windows 98-inspired visual language while keeping the document readable, responsive, printable, and easy to maintain.
