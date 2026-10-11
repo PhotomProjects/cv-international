@@ -496,21 +496,21 @@ The final command should return no output.
 Generated files do not prove that the hosting platform applied them. Check the live security headers:
 
 ```bash
-curl -sI "https://cv.authelinflorian.dev/fr/cv/" |
+curl -sI "https://oldcv.authelinflorian.dev/fr/cv/" |
 grep -Ei '^(HTTP/|content-security-policy:|x-content-type-options:|referrer-policy:|x-frame-options:|permissions-policy:)'
 ```
 
 Verify the JavaScript MIME type:
 
 ```bash
-curl -sI "https://cv.authelinflorian.dev/assets/js/locale-redirect.js" |
+curl -sI "https://oldcv.authelinflorian.dev/assets/js/locale-redirect.js" |
 grep -Ei '^(HTTP/|content-type:)'
 ```
 
 Verify a legacy redirect:
 
 ```bash
-curl -sI "https://cv.authelinflorian.dev/lang/fr/" |
+curl -sI "https://oldcv.authelinflorian.dev/lang/fr/" |
 grep -Ei '^(HTTP/|location:)'
 ```
 

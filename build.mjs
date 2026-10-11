@@ -10,7 +10,7 @@ const DIST = path.join(ROOT, "dist");
 const SUPPORTED_LOCALES = ["fr", "en", "ja"];
 const VISIBLE_LOCALES = ["fr", "en"];
 const DEFAULT_LOCALE = "fr";
-const SITE_ORIGIN = "https://cv.authelinflorian.dev";
+const SITE_ORIGIN = "https://oldcv.authelinflorian.dev";
 
 // Small UI labels that are easier to keep in code for now
 const PROJECT_LINK_LABELS = {
