@@ -1,7 +1,7 @@
 > [!WARNING]
 > **Archived — old version**
 >
-> This project is no longer maintained. It is retained solely for historical reference.
+> This project is no longer maintained. Its source code and documentation are preserved as a record of its development and learning outcomes.
 
 # Multilingual Web Designer and Front-End CV
 
@@ -9,19 +9,27 @@ A static, multilingual online CV for a junior web designer and front-end develop
 
 The site is generated with a small Node.js build script from shared data, localized content, and one HTML template. The production output remains plain HTML, CSS, and JavaScript and can be deployed on any static host.
 
-## Live versions
+## Project status and reason for archiving
 
-- [French CV](https://cv.authelinflorian.dev/fr/cv/)
-- [English CV](https://cv.authelinflorian.dev/en/cv/)
-- [Japanese CV](https://cv.authelinflorian.dev/ja/cv/)
+The decision to retire the separate CV website was made on 5 October 2026 as part of a broader portfolio redesign. Maintaining a CV and portfolio on different websites added navigation friction and duplicated maintenance work.
 
-The Japanese page remains part of the build so its content and URL can be preserved. Its visibility in the language selector may be limited temporarily until the language level presented by the project is fully defensible.
+The new direction is a single, simpler portfolio that brings project presentations and CV information together. The professional focus remains web design and front-end development.
+
+This repository preserves the final implementation, earlier HTML pages, technical decisions, and lessons learned. It is no longer an active product and is retained for historical and educational reference.
+
+## Archived site URLs
+
+- [French CV](https://oldcv.authelinflorian.dev/fr/cv/)
+- [English CV](https://oldcv.authelinflorian.dev/en/cv/)
+- [Japanese CV](https://oldcv.authelinflorian.dev/ja/cv/)
+
+The archived build generates French, English, and Japanese pages. The visible language selector exposes French and English, while the root redirect still supports all three locales.
 
 ## Why this project exists
 
 The first version was a manually maintained multilingual CV. Every language duplicated most of the same HTML, which made content changes, translations, metadata, and layout fixes increasingly difficult to keep aligned.
 
-An intermediate plan introduced separate Designer and Full Stack CV variants plus a letter editor. That scope was deliberately reduced. The project now maintains one focused CV combining web design and front-end development, while the letter editor remains a separate future feature.
+An intermediate plan introduced separate Designer and Full Stack CV variants plus a letter editor. That scope was deliberately reduced. The final implementation contains one focused CV combining web design and front-end development. The letter editor was considered but never implemented.
 
 This direction was chosen to:
 
@@ -31,7 +39,7 @@ This direction was chosen to:
 - generate fast, indexable, printable static pages;
 - preserve a simple stack that can be explained and maintained without a framework.
 
-## Current features
+## Features in the archived version
 
 - French, English, and Japanese static pages generated from shared sources;
 - localized titles, descriptions, content, navigation labels, and project information;
@@ -155,7 +163,7 @@ The static hosting configuration applies:
 - `X-Frame-Options: DENY`;
 - a restrictive `Permissions-Policy`;
 - a Content Security Policy limited to same-origin resources;
-- `X-Robots-Tag: noindex` for future downloadable PDF files.
+- an `X-Robots-Tag: noindex` rule for `/resume/*.pdf`, retained from the planned downloadable PDF feature.
 
 The root redirect logic is stored in an external JavaScript file. This removed the need for `script-src 'unsafe-inline'` in the Content Security Policy.
 
@@ -179,7 +187,7 @@ Separate source files keep design tokens, base styles, components, the Windows 9
 
 ### Deferred letter editor
 
-Empty placeholder files were removed. The editor will be introduced only when its requirements, data model, preview, and PDF workflow are ready, avoiding speculative architecture.
+Empty placeholder files were removed to avoid speculative architecture. The editor was deferred before the project was archived and is not part of the final implementation.
 
 ## Documentation
 
@@ -187,15 +195,6 @@ Empty placeholder files were removed. The editor will be introduced only when it
 - [What I learned](docs/what-i-learned.md)
 
 The former `docs/project.md` content has been consolidated into this README to avoid maintaining two competing project overviews.
-
-## Roadmap
-
-- complete a final accessibility, keyboard, responsive, print, and link audit;
-- validate generated HTML and run Lighthouse checks;
-- decide whether Japanese should be discoverable or direct-link only during the temporary learning phase;
-- recreate the Japanese application PDFs (`履歴書` and `職務経歴書`);
-- design and implement the letter editor as an independent feature;
-- optionally add Open Graph, social preview images, and maintained structured data.
 
 ## License
 
